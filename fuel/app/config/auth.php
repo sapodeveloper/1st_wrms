@@ -23,7 +23,7 @@
 
 return array(
 	'driver' => 'Simpleauth',
-	'verify_multiple_logins' => ture,
+	'verify_multiple_logins' => false,
 	'salt' => 'saposen_wrms',
 	'iterations' => 10000,
 );
