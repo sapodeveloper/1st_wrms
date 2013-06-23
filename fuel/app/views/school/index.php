@@ -45,6 +45,6 @@
 <p>現在参加高校は登録されていません。</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('index/manage/school/create', 'Add new School', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('index/manage/school/create', '新規登録', array('class' => 'btn btn-success')); ?>
 
 </p>
