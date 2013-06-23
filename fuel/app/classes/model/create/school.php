@@ -21,6 +21,6 @@ class Model_Create_School extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'create_schools';
+	protected static $_table_name = 'schools';
 
 }
