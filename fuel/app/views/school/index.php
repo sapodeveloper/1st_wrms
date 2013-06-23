@@ -1,5 +1,21 @@
 <h3>登録高校情報</h3>
 <br>
+<?php if (Session::get_flash('success')): ?>
+			<div class="alert alert-success">
+				<strong>Success</strong>
+				<p>
+				<?php echo implode('</p><p>', e((array) Session::get_flash('success'))); ?>
+				</p>
+			</div>
+<?php endif; ?>
+<?php if (Session::get_flash('error')): ?>
+			<div class="alert alert-error">
+				<strong>Error</strong>
+				<p>
+				<?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
+				</p>
+			</div>
+<?php endif; ?>
 <?php if ($schools): ?>
 <table class="table table-striped">
 	<thead>
@@ -30,6 +46,6 @@
 <p>現在参加高校は登録されていません。</p>
 
 <?php endif; ?><p>
-	<?php //echo Html::anchor('index/school/create', 'Add new School', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('index/manage/school/create', 'Add new School', array('class' => 'btn btn-success')); ?>
 
 </p>
