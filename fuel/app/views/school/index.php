@@ -20,25 +20,24 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>登録ID</th>
 			<th>学校名</th>
 			<th>公式HP</th>
-			<th>状態</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
-<?php foreach ($schools as $school): ?>		<tr>
-
-			<td><?php echo $school->school_name; ?></td>
-			<td><?php echo $school->school_url; ?></td>
-			<td><?php echo $school->condition; ?></td>
-			<td>
-				<?php echo Html::anchor('index/school/view/'.$school->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
-				<?php echo Html::anchor('index/school/edit/'.$school->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-				<?php echo Html::anchor('index/school/delete/'.$school->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('Are you sure?')")); ?>
-
-			</td>
-		</tr>
+<?php foreach ($schools as $school): ?>
+	<tr>
+		<td><?php echo $school->id; ?></td>
+		<td><?php echo $school->school_name; ?></td>
+		<td><?php echo $school->school_url; ?></td>
+		<td>
+			<?php echo Html::anchor('index/manage/school/view/'.$school->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
+			<?php echo Html::anchor('index/manage/school/edit/'.$school->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
+			<?php echo Html::anchor('index/manage/school/delete/'.$school->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('Are you sure?')")); ?>
+		</td>
+	</tr>
 <?php endforeach; ?>	</tbody>
 </table>
 

@@ -14,6 +14,26 @@ class Controller_Manage_School extends Controller_Manage
  		return $view;
 	}
 
+	public function action_view($id = null)
+	{
+		is_null($id) and Response::redirect('index/manage/school');
+
+		if ( ! $data['school'] = Model_Create_School::find($id))
+		{
+			Session::set_flash('error', 'Could not find school #'.$id);
+			Response::redirect('school');
+		}
+
+		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(登録高校詳細)');
+ 		$view->header=View::forge('layout/manage_header');
+ 		$view->side_menu=View::forge('manage/side_menu');
+ 		$view->content=View::forge('school/view', $data);
+ 		$view->footer=View::forge('layout/footer');
+ 		return $view;
+
+	}
+
 	public function action_create()
 	{
 		if (Input::method() == 'POST')

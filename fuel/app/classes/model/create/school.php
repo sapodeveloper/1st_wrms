@@ -23,4 +23,14 @@ class Model_Create_School extends \Orm\Model
 	);
 	protected static $_table_name = 'schools';
 
+	public static function validate($factory)
+	{
+		$val = Validation::forge($factory);
+		$val->add_field('school_name', 'School Name', 'required|max_length[255]');
+		$val->add_field('school_url', 'School URL', 'max_length[255]');
+		$val->add_field('condition', 'Condition', 'valid_string[numeric]');
+
+		return $val;
+	}
+
 }

@@ -1,4 +1,4 @@
-<?php echo Form::open(array("class"=>"form-horizontal")); ?>
+<?php echo Form::open(array("action" => "index/manage/school/create", "class"=>"form-horizontal")); ?>
 
 	<fieldset>
 		<div class="control-group">
