@@ -4,7 +4,7 @@ class Controller_Manage_School extends Controller_Manage
 {	
 	public function action_index()
 	{
-		$data['schools'] = Model_Create_School::find('all');
+		$data['schools'] = Model_School::find('all');
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(登録高校管理画面)');
  		$view->header=View::forge('layout/manage_header');
@@ -18,7 +18,7 @@ class Controller_Manage_School extends Controller_Manage
 	{
 		is_null($id) and Response::redirect('index/manage/school');
 
-		if ( ! $data['school'] = Model_Create_School::find($id))
+		if ( ! $data['school'] = Model_School::find($id))
 		{
 			Session::set_flash('error', 'Could not find school #'.$id);
 			Response::redirect('school');
@@ -38,11 +38,11 @@ class Controller_Manage_School extends Controller_Manage
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Create_School::validate('create');
+			$val = Model_School::validate('create');
 			
 			if ($val->run())
 			{
-				$school = Model_Create_School::forge(array(
+				$school = Model_School::forge(array(
 					'school_name' => Input::post('school_name'),
 					'school_url' => Input::post('school_url'),
 					'condition' => 1,
@@ -80,13 +80,13 @@ class Controller_Manage_School extends Controller_Manage
 		$view=View::forge('layout/manage');
 		is_null($id) and Response::redirect('index/manage/school');
 
-		if ( ! $school = Model_Create_School::find($id))
+		if ( ! $school = Model_School::find($id))
 		{
 			Session::set_flash('error', '指定されたidの高校は存在しません');
 			Response::redirect('index/manage/school');
 		}
 
-		$val = Model_Create_School::validate('edit');
+		$val = Model_School::validate('edit');
 
 		if ($val->run())
 		{
@@ -127,7 +127,7 @@ class Controller_Manage_School extends Controller_Manage
 	{
 		is_null($id) and Response::redirect('index/manage/school');
 
-		if ($school = Model_Create_School::find($id))
+		if ($school = Model_School::find($id))
 		{
 			$school->delete();
 			Session::set_flash('success', '指定された高校情報を削除しました');

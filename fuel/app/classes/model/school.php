@@ -1,6 +1,6 @@
 <?php
 
-class Model_Create_School extends \Orm\Model
+class Model_School extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
@@ -32,5 +32,15 @@ class Model_Create_School extends \Orm\Model
 
 		return $val;
 	}
+
+	protected static $_has_many = array(
+        'groups' => array(
+        	'key_from' => 'id',
+        	'model_to' => 'Model_Group',
+        	'key_to' => 'school_id',
+        	'cascade_save' => FALSE,
+        	'cascade_delete' => FALSE,
+        )
+    );
 
 }

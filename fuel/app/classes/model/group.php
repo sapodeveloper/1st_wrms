@@ -43,9 +43,9 @@ class Model_Group extends \Orm\Model
 		return $val;
 	}
 
-	protected static $_has_many = array(
-    	'owncard' => array(
-    		'model_to' => 'Model_Create_School',
+	protected static $_belongs_to = array(
+    	'school' => array(
+    		'model_to' => 'Model_School',
     		'key_from' => 'school_id',
     		'key_to' => 'id',
     		'cascade_save' => false,
