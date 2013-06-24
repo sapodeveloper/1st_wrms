@@ -26,7 +26,7 @@ class Model_Group extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'schools';
+	protected static $_table_name = 'groups';
 
 	public static function validate($factory)
 	{
