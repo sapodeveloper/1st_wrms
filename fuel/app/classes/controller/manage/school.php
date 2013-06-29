@@ -21,7 +21,7 @@ class Controller_Manage_School extends Controller_Manage
 		if ( ! $data['school'] = Model_School::find($id))
 		{
 			Session::set_flash('error', 'Could not find school #'.$id);
-			Response::redirect('school');
+			Response::redirect('index/manage/school');
 		}
 
 		$view=View::forge('layout/manage');

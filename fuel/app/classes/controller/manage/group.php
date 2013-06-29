@@ -51,7 +51,7 @@ class Controller_Manage_Group extends Controller_Manage
 			}
 		}
 		
-		$school_data=Model_Create_School::find('all');
+		$school_data=Model_School::find('all');
 		foreach($school_data as $row):
 			$data['school_data'][$row->id]=$row->school_name;
 		endforeach;
