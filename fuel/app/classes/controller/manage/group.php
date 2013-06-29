@@ -64,4 +64,79 @@ class Controller_Manage_Group extends Controller_Manage
  		$view->footer=View::forge('layout/footer');
  		return $view;
 	}
+
+	public function action_edit($id = null)
+	{
+		$view=View::forge('layout/manage');
+		is_null($id) and Response::redirect('index/manage/group');
+
+		if ( ! $group = Model_Group::find($id))
+		{
+			Session::set_flash('error', '指定されたidのグループは存在しません');
+			Response::redirect('index/manage/group');
+		}
+
+		$val = Model_Group::validate('edit');
+
+		if ($val->run())
+		{
+			$group->school_id = $group->school_id;
+			$group->group_name    = Input::post('group_name');
+			$group->group_member1 = Input::post('group_member1');
+			$group->group_member2 = Input::post('group_member2');
+			$group->group_member3 = Input::post('group_member3');
+			$group->group_member4 = Input::post('group_member4');
+			$group->group_member5 = Input::post('group_member5');
+
+			if ($group->save())
+			{
+				Session::set_flash('success', '更新成功');
+				Response::redirect('index/manage/group');
+			}
+			else
+			{
+				Session::set_flash('error', '更新失敗');
+			}
+		}
+		else
+		{
+			if (Input::method() == 'POST')
+			{
+				$group->group_name    = $val->validated('group_name');
+				$group->group_member1 = $val->validated('group_member1');
+				$group->group_member2 = $val->validated('group_member2');
+				$group->group_member3 = $val->validated('group_member3');
+				$group->group_member4 = $val->validated('group_member4');
+				$group->group_member5 = $val->validated('group_member5');
+				Session::set_flash('error', $val->error());
+			}
+			$view->set_global('group', $group, false);
+		}
+
+ 		$view->set_global('title','水ロケット管理システム(既存グループ情報編集画面)');
+ 		$view->header=View::forge('layout/manage_header');
+ 		$view->side_menu=View::forge('manage/side_menu');
+ 		$view->content=View::forge('group/edit');
+ 		$view->footer=View::forge('layout/footer');
+ 		return $view;
+
+	}
+
+	public function action_delete($id = null)
+	{
+		is_null($id) and Response::redirect('index/manage/school');
+
+		if ($school = Model_School::find($id))
+		{
+			$school->delete();
+			Session::set_flash('success', '指定された高校情報を削除しました');
+		}
+		else
+		{
+			Session::set_flash('error', '指定された高校情報の削除に失敗しました。');
+		}
+
+		Response::redirect('index/manage/school');
+
+	}
 }
