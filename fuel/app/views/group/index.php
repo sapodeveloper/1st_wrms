@@ -41,7 +41,7 @@
 		<td>
 			<?php echo Html::anchor('index/manage/group/view/'.$group->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
 			<?php echo Html::anchor('index/manage/group/edit/'.$group->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-			<?php echo Html::anchor('index/manage/group/delete/'.$group->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('Are you sure?')")); ?>
+			<?php echo Html::anchor('index/manage/group/delete/'.$group->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>	</tbody>

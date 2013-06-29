@@ -124,19 +124,19 @@ class Controller_Manage_Group extends Controller_Manage
 
 	public function action_delete($id = null)
 	{
-		is_null($id) and Response::redirect('index/manage/school');
+		is_null($id) and Response::redirect('index/manage/group');
 
-		if ($school = Model_School::find($id))
+		if ($group = Model_Group::find($id))
 		{
-			$school->delete();
-			Session::set_flash('success', '指定された高校情報を削除しました');
+			$group->delete();
+			Session::set_flash('success', '指定されたグループ情報を削除しました');
 		}
 		else
 		{
 			Session::set_flash('error', '指定された高校情報の削除に失敗しました。');
 		}
 
-		Response::redirect('index/manage/school');
+		Response::redirect('index/manage/group');
 
 	}
 }
