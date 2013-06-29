@@ -7,10 +7,7 @@ class Controller_Manage_Group extends Controller_Manage
 		$data['groups'] = Model_Group::find('all');
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(グループ管理画面)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('group/index', $data);
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 	}
 
@@ -58,10 +55,7 @@ class Controller_Manage_Group extends Controller_Manage
 
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(新規グループ登録画面)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('group/create',$data);
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 	}
 
@@ -114,10 +108,7 @@ class Controller_Manage_Group extends Controller_Manage
 		}
 
  		$view->set_global('title','水ロケット管理システム(既存グループ情報編集画面)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('group/edit');
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 
 	}

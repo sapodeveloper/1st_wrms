@@ -20,15 +20,46 @@
 		</style>
 	</head>
 	<body>
-	<?php echo $header; ?>
-	<div class="container-fluid">
-  		<div class="row-fluid">
-			<?php echo $side_menu; ?>
-			<div class="span6">
-				<?php echo $content; ?>				
-			</div>
-	 	</div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	 	<div class="navbar-inner">
+			<div class="container-fluid">
+	    		<div class="brand"><?php echo $title; ?></div>
+		    	<div class="nav-collapse collapse"></div>
+	    	</div>
+	  	</div>
 	</div>
-	<?php echo $footer; ?>
+	<div class="container-fluid">
+		<div class="row-fluid">
+	    	<div class="span12">
+	     		<div class="well">
+					<div class="container-fluid">
+  						<div class="row-fluid">
+							<div class="span2">
+								<ui class="nav nav-list">
+									<li><?php echo Html::anchor('/index/manage/index', '管理トップ'); ?></li>
+									<li><?php echo Html::anchor('/index/manage/school/index', '登録高校管理'); ?></li>
+									<li><?php echo Html::anchor('/index/manage/group/index', 'グループ管理'); ?></li>
+								</ui>
+							</div>
+							<div class="span6">
+								<?php echo $content; ?>				
+							</div>
+	 					</div>
+					</div>
+					<hr>
+					<footer>
+						<p align="center">
+				  			&copy; ISMCサポートセンター 2013 All Rights Reserved
+				  		</p>
+						<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
+							<p>
+								<a href="http://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>
+								<small>Version: <?php echo e(Fuel::VERSION); ?></small>
+							</p>
+				  	</footer>
+				</div>
+			</div>
+		</div>
+	</div>
 	</body>
 </html>

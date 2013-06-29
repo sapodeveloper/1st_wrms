@@ -7,10 +7,7 @@ class Controller_Manage_School extends Controller_Manage
 		$data['schools'] = Model_School::find('all');
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(登録高校管理画面)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('school/index', $data);
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 	}
 
@@ -26,10 +23,7 @@ class Controller_Manage_School extends Controller_Manage
 
 		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(登録高校詳細)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('school/view', $data);
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 
 	}
@@ -68,10 +62,7 @@ class Controller_Manage_School extends Controller_Manage
 
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(新規高校登録画面)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('school/create');
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 	}
 
@@ -115,10 +106,7 @@ class Controller_Manage_School extends Controller_Manage
 		}
 
  		$view->set_global('title','水ロケット管理システム(既存高校情報編集画面)');
- 		$view->header=View::forge('layout/manage_header');
- 		$view->side_menu=View::forge('manage/side_menu');
  		$view->content=View::forge('school/edit');
- 		$view->footer=View::forge('layout/footer');
  		return $view;
 
 	}
