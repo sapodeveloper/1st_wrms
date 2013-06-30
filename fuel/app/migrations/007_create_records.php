@@ -6,16 +6,16 @@ class Create_records
 {
 	public function up()
 	{
-		\DBUtil::create_table('records',array(
-			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => ture),
+		\DBUtil::create_table('records', array(
+			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
 			'group_id' => array('constraint' => 11, 'type' => 'int'),
-			'x_distance' => array('constraint' => 63, 'type' => 'double'),
-			'y_distance' => array('constraint' => 63, 'type' => 'double'),
+			'x_distance' => array('type' => 'double'),
+			'y_distance' => array('type' => 'double'),
 			'condition' => array('constraint' => 11, 'type' => 'int'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
-			),array('id'));
+		), array('id'));
 	}
 
 	public function down()
