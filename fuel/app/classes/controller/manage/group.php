@@ -130,4 +130,41 @@ class Controller_Manage_Group extends Controller_Manage
 		Response::redirect('index/manage/group');
 
 	}
+
+	public function action_CreateRecord($id = null)
+    {
+       is_null($id) and Response::redirect('index/manage/group');
+
+       if (! $group = Model_Group::find($id))
+       {
+               Session::set_flash('error', '指定されたidのグループのレコードは存在しません');
+               Response::redirect('index/manage/group');
+       }
+       # 任意のグループidを持つグループにおいて、記録状態フラグが0の記録が存在する場合レコードの発行が出来ない
+       if (! $record = Model_Record::find('all', array('where' => array('group_id' => $id, 'condition' => 0))))
+       {
+            $record = Model_Record::forge(array(
+				'group_id' => $id,
+				'x_distance' => 0,
+				'y_distance' => 0,
+				'condition' => 0,
+			));
+			$record->save();
+			$record = Model_Record::forge(array(
+				'group_id' => $id,
+				'x_distance' => 0,
+				'y_distance' => 0,
+				'condition' => 0,
+			));
+			$record->save();
+			Session::set_flash('success', '空レコード発行');
+			Response::redirect('index/manage/group');
+
+       }
+       else
+       {
+       		Session::set_flash('error', 'レコードは既に存在します。');
+			Response::redirect('index/manage/group');
+       }
+    }
 }

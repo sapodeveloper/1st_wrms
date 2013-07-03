@@ -22,9 +22,9 @@ class Model_Record extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected staticc $_table_name = 'records';
+	protected static $_table_name = 'records';
 
-	public static fuction validate($factory)
+	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
 		$val->add_field('group_id','Group Id','required|valid_string[is_numeric]');
