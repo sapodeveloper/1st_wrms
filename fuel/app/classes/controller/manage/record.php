@@ -4,9 +4,10 @@ class Controller_Manage_Record extends Controller_Manage
 {	
 	public function action_index()
 	{
+		$data['records'] = Model_Record::find('all');
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(記録管理画面)');
- 		$view->content=View::forge('manage/record/all_record');
+ 		$view->content=View::forge('manage/record/all_record', $data);
  		return $view;
 	}
 
