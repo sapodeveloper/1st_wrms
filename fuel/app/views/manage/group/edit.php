@@ -7,7 +7,7 @@
 			<?php echo Form::label('所属学校名', 'school_id', array('class'=>'control-label')); ?>
 
 			<div class="controls">
-				<?php echo $group->school->school_name; ?>
+				<?php echo Form::select('school_id', $group->school->id, $school_data, array('class' => 'span4')); ?>
 
 			</div>
 		</div>

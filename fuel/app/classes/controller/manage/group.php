@@ -104,11 +104,16 @@ class Controller_Manage_Group extends Controller_Manage
 				$group->group_member5 = $val->validated('group_member5');
 				Session::set_flash('error', $val->error());
 			}
+
 			$view->set_global('group', $group, false);
 		}
+		$school_data=Model_School::find('all');
+		foreach($school_data as $row):
+			$data['school_data'][$row->id]=$row->school_name;
+		endforeach;
 
  		$view->set_global('title','水ロケット管理システム(既存グループ情報編集画面)');
- 		$view->content=View::forge('manage/group/edit');
+ 		$view->content=View::forge('manage/group/edit',$data);
  		return $view;
 
 	}
