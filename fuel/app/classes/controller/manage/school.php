@@ -42,6 +42,12 @@ class Controller_Manage_School extends Controller_Manage
 					'condition' => 1,
 				));
 
+				//重複確認
+				$school_count=Model_School::find('all', array('where' => array('school_name' => $school->school_name)));
+				if($school_count>0){
+					Session::set_flash('error', '既に該当高校が登録されています');
+					Response::redirect('index/manage/school');
+				}
 				if ($school and $school->save())
 				{
 					Session::set_flash('success', 'Added school #'.$school->id.'.');
