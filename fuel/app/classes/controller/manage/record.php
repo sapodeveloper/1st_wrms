@@ -36,4 +36,21 @@ class Controller_Manage_Record extends Controller_Manage
  		return $view;
 	}
 
+	public function action_view($id = null)
+	{
+		is_null($id) and Response::redirect('index/manage/record');
+
+		if ( ! $data['record'] = Model_Record::find($id))
+		{
+			Session::set_flash('error', 'Could not find record #'.$id);
+			Response::redirect('index/manage/record');
+		}
+
+		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(登録高校詳細)');
+ 		$view->content=View::forge('manage/record/view', $data);
+ 		return $view;
+
+	}
+
 }

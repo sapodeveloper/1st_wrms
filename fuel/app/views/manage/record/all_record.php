@@ -12,6 +12,7 @@
 		<td>学校名</td>
 		<td>グループ名</td>
 		<td>飛距離</td>
+		<td>記録状態</td>
 		<td>&nbsp;</td>
 	</thead>
 	<tbody>
@@ -21,6 +22,7 @@
 				<td><?php echo $record->group->school->school_name; ?></td>
 				<td><?php echo $record->group->group_name; ?></td>
 				<td><?php echo $record->x_distance; ?>m</td>
+				<td><?php if($record->condition == 1){ echo '記録済'; }else{ echo '未記録'; } ?></td>
 				<td>
 					<?php echo Html::anchor('index/manage/record/view/'.$record->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
 					<?php echo Html::anchor('index/manage/record/edit/'.$record->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
