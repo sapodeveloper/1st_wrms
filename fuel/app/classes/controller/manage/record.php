@@ -6,7 +6,32 @@ class Controller_Manage_Record extends Controller_Manage
 	{
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(記録管理画面)');
- 		$view->content=View::forge('manage/record/index');
+ 		$view->content=View::forge('manage/record/all_record');
  		return $view;
 	}
+
+	public function action_NullAllRecord()
+	{
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
+ 		$view->content=View::forge('manage/record/null_all_record');
+ 		return $view;
+	}
+
+	public function action_GroupNullRecord()
+	{
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
+ 		$view->content=View::forge('manage/record/group_null_record');
+ 		return $view;
+	}
+
+	public function action_SearchRecord()
+	{
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
+ 		$view->content=View::forge('manage/record/search_record');
+ 		return $view;
+	}
+
 }
