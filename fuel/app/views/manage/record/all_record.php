@@ -5,6 +5,7 @@
 	<li><?php echo Html::anchor('index/manage/record/recordNullRecord', 'レコードなしグループ'); ?></li>
 	<li><?php echo Html::anchor('index/manage/record/SearchRecord', 'レコード検索'); ?></li>
 </ul>
+<?php if ($records): ?>
 <table class="table table-bordered">
 	<thead>
 		<td>ID</td>
@@ -29,3 +30,7 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+<?php else: ?>
+<p>現在保存されている記録はありません。</p>
+
+<?php endif; ?>
