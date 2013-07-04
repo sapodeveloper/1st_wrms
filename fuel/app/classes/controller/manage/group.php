@@ -74,7 +74,7 @@ class Controller_Manage_Group extends Controller_Manage
 
 		if ($val->run())
 		{
-			$group->school_id = $group->school_id;
+			$group->school_id = Input::post('school_id');;
 			$group->group_name    = Input::post('group_name');
 			$group->group_member1 = Input::post('group_member1');
 			$group->group_member2 = Input::post('group_member2');
