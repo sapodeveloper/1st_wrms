@@ -55,7 +55,7 @@ class Controller_Manage_Group extends Controller_Manage
 
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(新規グループ登録画面)');
- 		$view->content=View::forge('group/create',$data);
+ 		$view->content=View::forge('manage/group/create',$data);
  		return $view;
 	}
 
