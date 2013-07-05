@@ -20,6 +20,16 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php $count = 1; ?>
+					<?php foreach ($records as $record): ?>
+						<tr>
+							<td><?php echo $count ?></td>
+							<td><?php echo $record->group->school->school_name; ?></td>
+							<td><?php echo $record->group->group_name; ?></td>
+							<td><?php echo $record->x_distance; ?>m</td>
+						</tr>
+					<?php $count++; ?>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
     	</div>
