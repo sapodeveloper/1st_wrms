@@ -1,6 +1,6 @@
 <div class="row-fluid">
-<div class="span4"></div>
-<div class="span4">
+<div class="span3"></div>
+<div class="span6">
 	<form name="form1" method="post" action="">
 	<table class="table table-bordered">
 		<tr>
@@ -14,10 +14,10 @@
 			<input type="password" name="password" id="password"></td>
 			</tr>
 		<tr>
-			<th colspan="2" scope="row"><input type="submit" value="ログイン" class="btn btn-primary"></th>
+			<th colspan="2" scope="row"><input type="submit" value="ログイン" class="span12 btn btn-large btn-primary"></th>
 		</tr>
 	</table>
 	</form>
 </div>
-<div class="span4"></div>
+<div class="span3"></div>
 </div>
