@@ -19,4 +19,19 @@ class Controller_Main_Entry extends Controller_Main
  		$view->footer=View::forge('layout/footer');
  		return $view;
 	}
+
+	public function action_GroupList($id = null)
+	{
+		$group_data  = Model_Group::find('all', array('where' => array('school_id' => $id)));
+		if($group_data){
+			foreach($group_data as $row):
+				$select_data['group_data'][$row->id]=$row->group_name;
+			endforeach;
+		}else{
+			$select_data['group_data'][0] = '該当高校のグループはありません';
+		}
+ 		$view=View::forge('main/entry/group_list', $select_data);
+ 		return $view;
+	}
+
 }

@@ -1,3 +1,18 @@
+<script type="text/javascript">
+	$(function(){
+		$("#school").change(list)
+	});
+	function list() {
+		var url = 'entry/GroupList/';
+		url += $("#school").val();
+		$.ajax(url, {"complete": function(xhr,status){
+			$("#select_group").hide();
+			window.xhr = xhr;
+			$("#entry tr:first").after($(xhr.responseText));
+		}});
+	}
+
+</script>
 <div align="center">
 	<h3>エントリー</h3>
 	<br>
@@ -5,20 +20,12 @@
 	<div class="row">
 		<div class="span3"></div>
 		<div class="span6">
-			<table class="table">
+			<table id="entry" class="table">
 				<tr>
 					<td>
 						<?php echo Form::label('学校名', 'school_id', array('class'=>'control-label')); ?>
 					</td>
-					<td><?php echo Form::select('school_id', null, $school_data, array('class' => 'span12')); ?></td>
-				</tr>
-				<tr>
-					<td>
-						<?php echo Form::label('グループ', 'group_id', array('class'=>'control-label')); ?>
-					</td>
-					<td>
-						<?php echo Form::select('group_id', null, $group_data, array('class' => 'span12')); ?>
-					</td>
+					<td><?php echo Form::select('school_id', null, $school_data, array('class' => 'span12', 'id' => 'school')); ?></td>
 				</tr>
 				<tr>
 					<td colspan="2">
