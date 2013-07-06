@@ -8,7 +8,7 @@
 	</h2>
 	<br>
 	<div class="row">
-    	<div class="span9">
+    	<div class="span8">
     		<h2>現在のトップ１０</h2>
 			<table class="table table-bordered">
 				<thead>
@@ -33,7 +33,7 @@
 				</tbody>
 			</table>
     	</div>
-    	<div class="span3">
+    	<div class="span4">
     		<h2>現在エントリー状況</h2>
     		<?php if($wait_group_lists): ?>
     		<table class="table table-bordered">

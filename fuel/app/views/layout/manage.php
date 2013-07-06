@@ -46,7 +46,7 @@
 									<li><?php echo Html::anchor('/index/manage/record/index', '記録管理'); ?></li>
 								</ui>
 							</div>
-							<div class="span6">
+							<div class="span10">
 								<?php echo $content; ?>				
 							</div>
 	 					</div>
