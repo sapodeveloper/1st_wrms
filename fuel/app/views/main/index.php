@@ -44,6 +44,14 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php $count = 1; ?>
+					<?php foreach ($wait_group_lists as $wgl): ?>
+						<tr>
+							<td><?php echo $count ?></td>
+							<td><?php echo $wgl->group->group_name; ?></td>
+						</tr>
+					<?php $count++; ?>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 			<?php else: ?>
