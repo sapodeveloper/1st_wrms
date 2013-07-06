@@ -41,6 +41,7 @@
 					<tr>
 						<td>待ち順位</td>
 						<td>グループ名</td>
+						<td>状態</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,6 +50,17 @@
 						<tr>
 							<td><?php echo $count ?></td>
 							<td><?php echo $wgl->group->group_name; ?></td>
+							<td>
+								<?php
+									if($wgl->condition == 0){
+										echo "ロケット作成中";
+									}elseif ($wgl->condition == 1) {
+										echo "スタンバイ";
+									}elseif ($wgl->condition == 2) {
+										echo "発射済";
+									}
+								?>
+							</td>
 						</tr>
 					<?php $count++; ?>
 					<?php endforeach; ?>
