@@ -4,6 +4,38 @@ class Controller_Main_Entry extends Controller_Main
 {
 	public function action_index()
 	{
+		if (Input::method() == 'POST')
+		{
+			$val = Model_WaitGroupList::validate('create');
+			
+			if ($val->run())
+			{
+				$wgl = Model_WaitGroupList::forge(array(
+					'group_id' => Input::post('group_id'),
+					'condition' => 0,
+				));
+				if($wgl->group_id == 0)
+				{
+					Session::set_flash('error', 'グループを選択してください');
+					Response::redirect('index/main/entry');
+				}
+
+				if ($wgl and $wgl->save())
+				{
+					Session::set_flash('success', 'エントリーを受け付けました');
+					Response::redirect('/');
+				}
+
+				else
+				{
+					Session::set_flash('error', 'エントリーに失敗しました。お近くのスタッフまでお願いします。');
+				}
+			}
+			else
+			{
+				Session::set_flash('error', $val->error());
+			}
+		}
 		$school_data = Model_School::find('all');
 		$data['school_data'][0] = '----------高校を選択してください----------';
 		foreach($school_data as $row):
