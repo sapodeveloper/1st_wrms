@@ -4,7 +4,11 @@ class Controller_Main_Entry extends Controller_Main
 {
 	public function action_index()
 	{
-		$group_data=Model_Group::find('all');
+		$school_data = Model_School::find('all');
+		foreach($school_data as $row):
+			$data['school_data'][$row->id]=$row->school_name;
+		endforeach;
+		$group_data  = Model_Group::find('all');
 		foreach($group_data as $row):
 			$data['group_data'][$row->id]=$row->group_name;
 		endforeach;
