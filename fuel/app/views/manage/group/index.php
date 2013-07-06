@@ -1,21 +1,5 @@
 <h3>登録参加グループ情報</h3>
 <br>
-<?php if (Session::get_flash('success')): ?>
-			<div class="alert alert-success">
-				<strong>Success</strong>
-				<p>
-				<?php echo implode('</p><p>', e((array) Session::get_flash('success'))); ?>
-				</p>
-			</div>
-<?php endif; ?>
-<?php if (Session::get_flash('error')): ?>
-			<div class="alert alert-error">
-				<strong>Error</strong>
-				<p>
-				<?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
-				</p>
-			</div>
-<?php endif; ?>
 <?php if ($groups): ?>
 <table class="table table-striped">
 	<thead>
