@@ -35,6 +35,7 @@
     	</div>
     	<div class="span3">
     		<h2>現在エントリー状況</h2>
+    		<?php if($wait_group_lists): ?>
     		<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -45,6 +46,9 @@
 				<tbody>
 				</tbody>
 			</table>
+			<?php else: ?>
+				<h1>今すぐ飛ばせます!!</h1>
+			<?php endif; ?>
     	</div>
     </div>
 </div>
