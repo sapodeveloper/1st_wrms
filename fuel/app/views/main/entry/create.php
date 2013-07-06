@@ -1,19 +1,3 @@
-<script type="text/javascript">
-
-     $(document).ready(function(){
-		
-		$("#parent").change(function () {
-		
-		//alert($("#parent").val());
-		$("#child option").addClass('hide');
-		$('#child .c_' + $("#parent").val()).removeClass("hide");
-		
-		
-		}).trigger('change');
-
-    });
-    
-</script>
 <div align="center">
 	<h3>エントリー</h3>
 	<br>
