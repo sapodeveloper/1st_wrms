@@ -1,18 +1,3 @@
-<script type="text/javascript">
-	$(function(){
-		$("#school").change(list)
-	});
-	function list() {
-		var url = 'entry/GroupList/';
-		url += $("#school").val();
-		$.ajax(url, {"complete": function(xhr,status){
-			$("#select_group").hide();
-			window.xhr = xhr;
-			$("#entry tr:first").after($(xhr.responseText));
-		}});
-	}
-
-</script>
 <div align="center">
 	<h3>エントリー</h3>
 	<br>

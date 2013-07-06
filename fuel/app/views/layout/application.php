@@ -3,6 +3,7 @@
 	<head>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
 		<?php echo Asset::js('bootstrap.js'); ?>
+		<?php echo Asset::js('group_list.js'); ?>
 		<?php echo Asset::css('bootstrap.css'); ?>
 		<meta charset="utf-8">
 		<title>水ロケット管理システム</title>
