@@ -8,6 +8,7 @@
 			<th>所属高校</th>
 			<th>チーム名</th>
 			<th colspan="5">所属メンバー</th>
+			<th>記録</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -22,6 +23,9 @@
 		<td><?php echo $group->group_member3; ?></td>
 		<td><?php echo $group->group_member4; ?></td>
 		<td><?php echo $group->group_member5; ?></td>
+		<td>
+			<?php echo Html::anchor('index/manage/record/GroupRecord/'.$group->id, '記録確認', array('class' => 'btn btn-success')); ?>
+		</td>
 		<td>
 			<?php echo Html::anchor('index/manage/group/view/'.$group->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
 			<?php echo Html::anchor('index/manage/group/edit/'.$group->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
