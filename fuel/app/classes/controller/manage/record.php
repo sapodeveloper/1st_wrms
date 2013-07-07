@@ -105,4 +105,34 @@ class Controller_Manage_Record extends Controller_Manage
  		return $view;
 	}
 
+	public function action_GroupRecord($id = null)
+	{
+		$data['group_records'] = Model_Record::find('all', array('where' => array('group_id' => $id)));
+		$data['group_name'] = Model_Group::find($id);
+		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(グループ記録画面)');
+ 		$view->content=View::forge('manage/record/group_record', $data);
+ 		return $view;
+	}
+
+	public function action_complete($id = null)
+	{
+		if ( ! $wgl = Model_WaitGroupList::find($id))
+		{
+			Session::set_flash('error', '指定されたidのエントリーは存在しません');
+			Response::redirect('index/manage/record/input_record');
+		}
+		$wgl->condition = 4;
+		if ($wgl->save())
+		{
+			Session::set_flash('success', '指定グループのフェーズを完了にしました');
+			Response::redirect('index/manage/record/input_record');
+		}
+		else
+		{
+			Session::set_flash('error', '処理失敗');
+			Response::redirect('index/manage/record/input_record');
+		}
+	}
+
 }
