@@ -43,6 +43,7 @@
 									<li><?php echo Html::anchor('/index/manage/index', '管理トップ'); ?></li>
 									<li><?php echo Html::anchor('/index/manage/school/index', '登録高校管理'); ?></li>
 									<li><?php echo Html::anchor('/index/manage/group/index', 'グループ管理'); ?></li>
+									<li><?php echo Html::anchor('/index/manage/control/index', '発射管制管理'); ?></li>
 									<li><?php echo Html::anchor('/index/manage/record/index', '記録管理'); ?></li>
 								</ui>
 							</div>
