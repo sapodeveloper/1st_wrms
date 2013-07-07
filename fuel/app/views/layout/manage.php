@@ -45,6 +45,7 @@
 									<li><?php echo Html::anchor('/index/manage/group/index', 'グループ管理'); ?></li>
 									<li><?php echo Html::anchor('/index/manage/phase', 'フェーズ管理'); ?></li>
 									<li><?php echo Html::anchor('/index/manage/control/index', '発射管制管理'); ?></li>
+									<li><?php echo Html::anchor('/index/manage/record/EntryRecord', 'レコード登録'); ?></li>
 									<li><?php echo Html::anchor('/index/manage/record/index', '記録管理'); ?></li>
 								</ui>
 							</div>
