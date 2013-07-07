@@ -62,4 +62,47 @@ class Controller_Manage_Record extends Controller_Manage
  		return $view;
 	}
 
+	public function action_InputRecord($id = null)
+	{
+		$wgl = Model_WaitGroupList::find($id);
+		if (Input::method() == 'POST')
+		{
+			$val = Model_Record::validate('create');
+			
+			if ($val->run())
+			{
+				$record = Model_Record::forge(array(
+					'group_id' => Input::post('group_id'),
+					'x_distance' => Input::post('x_distance'),
+					'y_distance' => Input::post('y_distance'),
+					'condition' => Input::post('condition'),
+				));
+
+				if ($record and $record->save())
+				{
+					Session::set_flash('success', '記録登録しました');
+
+					Response::redirect('index/manage/record/EntryRecord');
+				}
+
+				else
+				{
+					Session::set_flash('error', '記録登録に失敗しました');
+				}
+			}
+			else
+			{
+				Session::set_flash('error', $val->error());
+			}
+		}
+		$data['decision'][1] = '有効';
+		$data['decision'][2] = '無効(測定不可)';
+		$data['decision'][3] = '無効(有効測定回数外)';
+		$data['launch'] = Model_WaitGroupList::find($id);
+		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(記録登録画面)');
+ 		$view->content=View::forge('manage/record/input_record', $data);
+ 		return $view;
+	}
+
 }
