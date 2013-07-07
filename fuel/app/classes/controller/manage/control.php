@@ -7,7 +7,6 @@ class Controller_Manage_Control extends Controller_Manage
 		$data['entries'] = Model_WaitGroupList::find('all', array('where' => array('condition' => 1)));
 		$data['standbys'] = Model_WaitGroupList::find('all', array('where' => array('condition' => 2)));
 		$data['launches'] = Model_WaitGroupList::find('all', array('where' => array('condition' => 3)));
- 		$view=View::forge('layout/application');
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
  		$view->content=View::forge('manage/control/index', $data);
