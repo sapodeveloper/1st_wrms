@@ -44,13 +44,13 @@
 				<?php 
 					if($aep->condition > 0)
 					{
-						echo Html::anchor('/index/manage/phase/back/'.$aep->id, '前段階', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
+						echo Html::anchor('/manage/phase/back/'.$aep->id, '前段階', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
 					}
 				?>
 			</td>
 			<td>
 				<?php
-					echo Html::anchor('/index/manage/phase//'.$aep->id, '辞退処理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
+					echo Html::anchor('/manage/phase//'.$aep->id, '辞退処理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
 				?>
 			</td>
 		</tr>
@@ -60,7 +60,7 @@
 				<?php 
 					if($aep->condition < 4)
 					{
-						echo Html::anchor('/index/manage/phase/forward/'.$aep->id, '次段階', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
+						echo Html::anchor('/manage/phase/forward/'.$aep->id, '次段階', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
 					}
 				?>
 			</td>
@@ -68,7 +68,7 @@
 				<?php 
 					if($aep->condition == 4)
 					{
-						echo Html::anchor('/index/manage/phase/forward/'.$aep->id, 'リスト除外', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
+						echo Html::anchor('/manage/phase/forward/'.$aep->id, 'リスト除外', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
 					}
 				?>
 			</td>

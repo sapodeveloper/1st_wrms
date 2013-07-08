@@ -1,9 +1,9 @@
 <h3>記録管理</h3>
 <ul class="nav nav-tabs">
-	<li class="active"><?php echo Html::anchor('index/manage/record/', '全レコード一覧'); ?></li>
-	<li><?php echo Html::anchor('index/manage/record/NullAllRecord', '空レコード一覧'); ?></li>
-	<li><?php echo Html::anchor('index/manage/record/recordNullRecord', 'レコードなしグループ'); ?></li>
-	<li><?php echo Html::anchor('index/manage/record/SearchRecord', 'レコード検索'); ?></li>
+	<li class="active"><?php echo Html::anchor('manage/record/', '全レコード一覧'); ?></li>
+	<li><?php echo Html::anchor('manage/record/NullAllRecord', '空レコード一覧'); ?></li>
+	<li><?php echo Html::anchor('manage/record/recordNullRecord', 'レコードなしグループ'); ?></li>
+	<li><?php echo Html::anchor('manage/record/SearchRecord', 'レコード検索'); ?></li>
 </ul>
 <?php if ($records): ?>
 <table class="table table-bordered">
@@ -24,9 +24,9 @@
 				<td><?php echo $record->x_distance; ?>m</td>
 				<td><?php if($record->condition == 1){ echo '記録済'; }else{ echo '未記録'; } ?></td>
 				<td>
-					<?php echo Html::anchor('index/manage/record/view/'.$record->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
-					<?php echo Html::anchor('index/manage/record/edit/'.$record->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-					<?php echo Html::anchor('index/manage/record/delete/'.$record->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
+					<?php echo Html::anchor('manage/record/view/'.$record->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
+					<?php echo Html::anchor('manage/record/edit/'.$record->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
+					<?php echo Html::anchor('manage/record/delete/'.$record->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

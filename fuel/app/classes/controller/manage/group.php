@@ -34,7 +34,7 @@ class Controller_Manage_Group extends Controller_Manage
 				{
 					Session::set_flash('success', 'Added school #'.$group->id.'.');
 
-					Response::redirect('index/manage/group');
+					Response::redirect('manage/group');
 				}
 
 				else
@@ -62,12 +62,12 @@ class Controller_Manage_Group extends Controller_Manage
 	public function action_edit($id = null)
 	{
 		$view=View::forge('layout/manage');
-		is_null($id) and Response::redirect('index/manage/group');
+		is_null($id) and Response::redirect('manage/group');
 
 		if ( ! $group = Model_Group::find($id))
 		{
 			Session::set_flash('error', '指定されたidのグループは存在しません');
-			Response::redirect('index/manage/group');
+			Response::redirect('manage/group');
 		}
 
 		$val = Model_Group::validate('edit');
@@ -85,7 +85,7 @@ class Controller_Manage_Group extends Controller_Manage
 			if ($group->save())
 			{
 				Session::set_flash('success', '更新成功');
-				Response::redirect('index/manage/group');
+				Response::redirect('manage/group');
 			}
 			else
 			{
@@ -120,7 +120,7 @@ class Controller_Manage_Group extends Controller_Manage
 
 	public function action_delete($id = null)
 	{
-		is_null($id) and Response::redirect('index/manage/group');
+		is_null($id) and Response::redirect('manage/group');
 
 		if ($group = Model_Group::find($id))
 		{
@@ -132,18 +132,18 @@ class Controller_Manage_Group extends Controller_Manage
 			Session::set_flash('error', '指定された高校情報の削除に失敗しました。');
 		}
 
-		Response::redirect('index/manage/group');
+		Response::redirect('manage/group');
 
 	}
 
 	public function action_CreateRecord($id = null)
     {
-       is_null($id) and Response::redirect('index/manage/group');
+       is_null($id) and Response::redirect('manage/group');
 
        if (! $group = Model_Group::find($id))
        {
                Session::set_flash('error', '指定されたidのグループのレコードは存在しません');
-               Response::redirect('index/manage/group');
+               Response::redirect('manage/group');
        }
        # 任意のグループidを持つグループにおいて、記録状態フラグが0の記録が存在する場合レコードの発行が出来ない
        if (! $record = Model_Record::find('all', array('where' => array('group_id' => $id, 'condition' => 0))))
@@ -163,13 +163,13 @@ class Controller_Manage_Group extends Controller_Manage
 			));
 			$record->save();
 			Session::set_flash('success', '空レコード発行');
-			Response::redirect('index/manage/group');
+			Response::redirect('manage/group');
 
        }
        else
        {
        		Session::set_flash('error', 'レコードは既に存在します。');
-			Response::redirect('index/manage/group');
+			Response::redirect('manage/group');
        }
     }
 }

@@ -24,12 +24,12 @@
 		<td><?php echo $group->group_member4; ?></td>
 		<td><?php echo $group->group_member5; ?></td>
 		<td>
-			<?php echo Html::anchor('index/manage/record/GroupRecord/'.$group->id, '記録確認', array('class' => 'btn btn-success')); ?>
+			<?php echo Html::anchor('manage/record/GroupRecord/'.$group->id, '記録確認', array('class' => 'btn btn-success')); ?>
 		</td>
 		<td>
-			<?php echo Html::anchor('index/manage/group/view/'.$group->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
-			<?php echo Html::anchor('index/manage/group/edit/'.$group->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-			<?php echo Html::anchor('index/manage/group/delete/'.$group->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
+			<?php echo Html::anchor('manage/group/view/'.$group->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
+			<?php echo Html::anchor('manage/group/edit/'.$group->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
+			<?php echo Html::anchor('manage/group/delete/'.$group->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>	</tbody>
@@ -39,6 +39,6 @@
 <p>現在参加グループは登録されていません。</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('index/manage/group/create', '新規登録', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('manage/group/create', '新規登録', array('class' => 'btn btn-success')); ?>
 
 </p>

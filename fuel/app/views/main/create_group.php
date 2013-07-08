@@ -1,7 +1,7 @@
 <div align="center">
 	<h3>飛び入り参加</h3>
 	<br>
-	<?php echo Form::open(array("action" => "index/main/CreateGroup", "class"=>"form-horizontal")); ?>
+	<?php echo Form::open(array("action" => "main/CreateGroup", "class"=>"form-horizontal")); ?>
 	<div class="row">
 		<div class="span3"></div>
 		<div class="span6">

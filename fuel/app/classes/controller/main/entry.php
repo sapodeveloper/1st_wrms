@@ -17,7 +17,7 @@ class Controller_Main_Entry extends Controller_Main
 				if($wgl->group_id == 0)
 				{
 					Session::set_flash('error', 'グループを選択してください');
-					Response::redirect('index/main/entry');
+					Response::redirect('main/entry');
 				}
 
 				if ($wgl and $wgl->save())

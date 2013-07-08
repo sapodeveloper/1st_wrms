@@ -9,7 +9,7 @@
 	<div class="span2"></div>
 	<div class="span8">
 		<h3 align="center">記録登録</h3>
-		<?php echo Form::open(array("action" => "index/manage/record/InputRecord/".$launch->id, "class"=>"form-horizontal")); ?>
+		<?php echo Form::open(array("action" => "manage/record/InputRecord/".$launch->id, "class"=>"form-horizontal")); ?>
 			<table class="table table-bordered">
 				<tr>
 					<td>エントリーID</td>

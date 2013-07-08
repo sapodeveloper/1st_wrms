@@ -1,6 +1,6 @@
 <h3>新規グループ登録</h3>
 <br>
-<?php echo Form::open(array("action" => "index/manage/group/create", "class"=>"form-horizontal")); ?>
+<?php echo Form::open(array("action" => "manage/group/create", "class"=>"form-horizontal")); ?>
 
 	<fieldset>
 		<div class="control-group">
@@ -66,4 +66,4 @@
 		</div>
 	</fieldset>
 <?php echo Form::close(); ?>
-<p><?php echo Html::anchor('index/manage/group', '戻る'); ?></p>
+<p><?php echo Html::anchor('manage/group', '戻る'); ?></p>

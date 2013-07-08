@@ -26,7 +26,7 @@
 	    		<div class="brand"><?php echo $title; ?></div>
 		    	<div class="nav-collapse collapse">
 		    		<p class="navbar-text pull-right">
-        				<?php echo Html::anchor('/index/session/logout', 'ログアウト'); ?>
+        				<?php echo Html::anchor('/session/logout', 'ログアウト'); ?>
         			</p>
 		    	</div>
 	    	</div>
@@ -40,13 +40,13 @@
   						<div class="row-fluid">
 							<div class="span2">
 								<ui class="nav nav-list">
-									<li><?php echo Html::anchor('/index/manage/index', '管理トップ'); ?></li>
-									<li><?php echo Html::anchor('/index/manage/school/index', '登録高校管理'); ?></li>
-									<li><?php echo Html::anchor('/index/manage/group/index', 'グループ管理'); ?></li>
-									<li><?php echo Html::anchor('/index/manage/phase', 'フェーズ管理'); ?></li>
-									<li><?php echo Html::anchor('/index/manage/control/index', '発射管制管理'); ?></li>
-									<li><?php echo Html::anchor('/index/manage/record/EntryRecord', 'レコード登録'); ?></li>
-									<li><?php echo Html::anchor('/index/manage/record/index', '記録管理'); ?></li>
+									<li><?php echo Html::anchor('/manage', '管理トップ'); ?></li>
+									<li><?php echo Html::anchor('/manage/school', '登録高校管理'); ?></li>
+									<li><?php echo Html::anchor('/manage/group', 'グループ管理'); ?></li>
+									<li><?php echo Html::anchor('/manage/phase', 'フェーズ管理'); ?></li>
+									<li><?php echo Html::anchor('/manage/control', '発射管制管理'); ?></li>
+									<li><?php echo Html::anchor('/manage/record/EntryRecord', 'レコード登録'); ?></li>
+									<li><?php echo Html::anchor('/manage/record', '記録管理'); ?></li>
 								</ui>
 							</div>
 							<div class="span10">

@@ -8,7 +8,7 @@ class Controller_Manage extends Controller
 		if(!Auth::check())
 		{
 			# ログインページへ移動
-			Response::redirect('index/session/login');
+			Response::redirect('session/login');
 		}else{
 			# 認証問題なければ何もしない
 		}

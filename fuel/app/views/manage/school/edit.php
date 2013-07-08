@@ -1,6 +1,6 @@
 <h3>高校情報編集</h3>
 <br>
-<?php echo Form::open(array("action" => "index/manage/school/edit/".$school->id, "class"=>"form-horizontal")); ?>
+<?php echo Form::open(array("action" => "manage/school/edit/".$school->id, "class"=>"form-horizontal")); ?>
 
 	<fieldset>
 		<div class="control-group">
@@ -28,4 +28,4 @@
 <?php echo Form::close(); ?>
 
 
-<p><?php echo Html::anchor('index/manage/school', '戻る'); ?></p>
+<p><?php echo Html::anchor('manage/school', '戻る'); ?></p>

@@ -38,12 +38,12 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_view($id = null)
 	{
-		is_null($id) and Response::redirect('index/manage/record');
+		is_null($id) and Response::redirect('manage/record');
 
 		if ( ! $data['record'] = Model_Record::find($id))
 		{
 			Session::set_flash('error', 'Could not find record #'.$id);
-			Response::redirect('index/manage/record');
+			Response::redirect('manage/record');
 		}
 
 		$view=View::forge('layout/manage');
@@ -83,7 +83,7 @@ class Controller_Manage_Record extends Controller_Manage
 				{
 					Session::set_flash('success', '記録登録しました');
 
-					Response::redirect('index/manage/record/EntryRecord');
+					Response::redirect('manage/record/EntryRecord');
 				}
 
 				else
@@ -121,18 +121,18 @@ class Controller_Manage_Record extends Controller_Manage
 		if ( ! $wgl = Model_WaitGroupList::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
-			Response::redirect('index/manage/record/EntryRecord');
+			Response::redirect('manage/record/EntryRecord');
 		}
 		$wgl->condition = 3;
 		if ($wgl->save())
 		{
 			Session::set_flash('success', '指定グループのフェーズを完了にしました');
-			Response::redirect('index/manage/record/EntryRecord');
+			Response::redirect('manage/record/EntryRecord');
 		}
 		else
 		{
 			Session::set_flash('error', '処理失敗');
-			Response::redirect('index/manage/record/EntryRecord');
+			Response::redirect('manage/record/EntryRecord');
 		}
 	}
 
@@ -141,18 +141,18 @@ class Controller_Manage_Record extends Controller_Manage
 		if ( ! $wgl = Model_WaitGroupList::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
-			Response::redirect('index/manage/record/EntryRecord');
+			Response::redirect('manage/record/EntryRecord');
 		}
 		$wgl->condition = 4;
 		if ($wgl->save())
 		{
 			Session::set_flash('success', '指定グループのフェーズを完了にしました');
-			Response::redirect('index/manage/record/EntryRecord');
+			Response::redirect('manage/record/EntryRecord');
 		}
 		else
 		{
 			Session::set_flash('error', '処理失敗');
-			Response::redirect('index/manage/record/EntryRecord');
+			Response::redirect('manage/record/EntryRecord');
 		}
 	}
 

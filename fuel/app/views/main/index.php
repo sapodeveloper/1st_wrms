@@ -1,10 +1,10 @@
 <div align="center">
 	<h2>HPで登録済みの方→
-		<?php echo Html::anchor('index/main/entry', 'エントリー', array('class' => 'btn  btn-large btn-success')); ?>
+		<?php echo Html::anchor('main/entry', 'エントリー', array('class' => 'btn  btn-large btn-success')); ?>
 	</h2>
 	<br>
 	<h2>飛び入り参加の方→
-		<?php echo Html::anchor('index/main/CreateGroup', '飛び入り参加', array('class' => 'btn  btn-large btn-warning')); ?>
+		<?php echo Html::anchor('main/CreateGroup', '飛び入り参加', array('class' => 'btn  btn-large btn-warning')); ?>
 	</h2>
 	<br>
 	<div class="row">

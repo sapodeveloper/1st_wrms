@@ -13,12 +13,12 @@ class Controller_Manage_School extends Controller_Manage
 
 	public function action_view($id = null)
 	{
-		is_null($id) and Response::redirect('index/manage/school');
+		is_null($id) and Response::redirect('manage/school');
 
 		if ( ! $data['school'] = Model_School::find($id))
 		{
 			Session::set_flash('error', 'Could not find school #'.$id);
-			Response::redirect('index/manage/school');
+			Response::redirect('manage/school');
 		}
 
 		$view=View::forge('layout/manage');
@@ -46,13 +46,13 @@ class Controller_Manage_School extends Controller_Manage
 				$school_count=Model_School::find('all', array('where' => array('school_name' => $school->school_name)));
 				if($school_count>0){
 					Session::set_flash('error', '既に該当高校が登録されています');
-					Response::redirect('index/manage/school');
+					Response::redirect('manage/school');
 				}
 				if ($school and $school->save())
 				{
 					Session::set_flash('success', 'Added school #'.$school->id.'.');
 
-					Response::redirect('index/manage/school');
+					Response::redirect('manage/school');
 				}
 
 				else
@@ -75,12 +75,12 @@ class Controller_Manage_School extends Controller_Manage
 	public function action_edit($id = null)
 	{
 		$view=View::forge('layout/manage');
-		is_null($id) and Response::redirect('index/manage/school');
+		is_null($id) and Response::redirect('manage/school');
 
 		if ( ! $school = Model_School::find($id))
 		{
 			Session::set_flash('error', '指定されたidの高校は存在しません');
-			Response::redirect('index/manage/school');
+			Response::redirect('manage/school');
 		}
 
 		$val = Model_School::validate('edit');
@@ -93,7 +93,7 @@ class Controller_Manage_School extends Controller_Manage
 			if ($school->save())
 			{
 				Session::set_flash('success', '更新成功');
-				Response::redirect('index/manage/school');
+				Response::redirect('manage/school');
 			}
 			else
 			{
@@ -119,7 +119,7 @@ class Controller_Manage_School extends Controller_Manage
 
 	public function action_delete($id = null)
 	{
-		is_null($id) and Response::redirect('index/manage/school');
+		is_null($id) and Response::redirect('manage/school');
 
 		if ($school = Model_School::find($id))
 		{
@@ -131,7 +131,7 @@ class Controller_Manage_School extends Controller_Manage
 			Session::set_flash('error', '指定された高校情報の削除に失敗しました。');
 		}
 
-		Response::redirect('index/manage/school');
+		Response::redirect('manage/school');
 
 	}
 

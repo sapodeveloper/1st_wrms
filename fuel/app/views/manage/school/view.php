@@ -9,5 +9,5 @@
 		<td><?php echo $school->school_url; ?></td>
 	</tr>
 </table>
-<?php echo Html::anchor('index/manage/school/edit/'.$school->id, '編集'); ?> |
-<?php echo Html::anchor('index/manage/school', '戻る'); ?>
+<?php echo Html::anchor('manage/school/edit/'.$school->id, '編集'); ?> |
+<?php echo Html::anchor('manage/school', '戻る'); ?>

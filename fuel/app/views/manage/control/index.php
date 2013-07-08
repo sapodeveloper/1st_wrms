@@ -18,7 +18,7 @@
 				<td><?php echo $launch->group->school->school_name; ?></td>
 				<td><?php echo $launch->group->group_name; ?></td>
 				<td>記録中</td>
-				<td><?php echo Html::anchor('index/manage/control/complete/'.$launch->id, '完了フェーズ', array('class' => 'btn btn-success')); ?></td>
+				<td><?php echo Html::anchor('manage/control/complete/'.$launch->id, '完了フェーズ', array('class' => 'btn btn-success')); ?></td>
 			</tr>
 		<?php $count++; ?>
 		<?php endforeach; ?>
@@ -43,7 +43,7 @@
 				<td><?php echo $standby->group->school->school_name; ?></td>
 				<td><?php echo $standby->group->group_name; ?></td>
 				<td>スタンバイ</td>
-				<td><?php echo Html::anchor('index/manage/control/launch/'.$standby->id, '打ち上げフェーズ', array('class' => 'btn btn-success')); ?></td>
+				<td><?php echo Html::anchor('manage/control/launch/'.$standby->id, '打ち上げフェーズ', array('class' => 'btn btn-success')); ?></td>
 			</tr>
 		<?php $count++; ?>
 		<?php endforeach; ?>
@@ -68,7 +68,7 @@
 				<td><?php echo $entry->group->school->school_name; ?></td>
 				<td><?php echo $entry->group->group_name; ?></td>
 				<td>ロケット作成中</td>
-				<td><?php echo Html::anchor('index/manage/control/standby/'.$entry->id, 'スタンバイフェーズ', array('class' => 'btn btn-success')); ?></td>
+				<td><?php echo Html::anchor('manage/control/standby/'.$entry->id, 'スタンバイフェーズ', array('class' => 'btn btn-success')); ?></td>
 			</tr>
 		<?php $count++; ?>
 		<?php endforeach; ?>

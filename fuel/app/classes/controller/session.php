@@ -12,7 +12,7 @@ class Controller_Session extends Controller
 			if ($auth->login($_POST['username'],$_POST['password']))
 			{
 				// 認証OKならmanageへ
-				Response::redirect('/index/manage');
+				Response::redirect('manage');
 			}
 			else
 			{
@@ -33,6 +33,6 @@ class Controller_Session extends Controller
 		//ログアウト
 		Auth::logout();
 		//ログアウト後はログインページへ
-		Response::redirect('/index/session/login');
+		Response::redirect('session/login');
 	}
 }

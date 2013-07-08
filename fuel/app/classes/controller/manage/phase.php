@@ -16,18 +16,18 @@ class Controller_Manage_Phase extends Controller_Manage
 		if ( ! $wgl = Model_WaitGroupList::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
-			Response::redirect('index/manage/phase');
+			Response::redirect('manage/phase');
 		}
 		$wgl->condition = $wgl->condition + 1;
 		if ($wgl->save())
 		{
 			Session::set_flash('success', '更新成功');
-			Response::redirect('index/manage/phase');
+			Response::redirect('manage/phase');
 		}
 		else
 		{
 			Session::set_flash('error', '更新失敗');
-			Response::redirect('index/manage/phase');
+			Response::redirect('manage/phase');
 		}
 	}
 
@@ -36,18 +36,18 @@ class Controller_Manage_Phase extends Controller_Manage
 		if ( ! $wgl = Model_WaitGroupList::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
-			Response::redirect('index/manage/phase');
+			Response::redirect('manage/phase');
 		}
 		$wgl->condition = $wgl->condition - 1;
 		if ($wgl->save())
 		{
 			Session::set_flash('success', '更新成功');
-			Response::redirect('index/manage/phase');
+			Response::redirect('manage/phase');
 		}
 		else
 		{
 			Session::set_flash('error', '更新失敗');
-			Response::redirect('index/manage/phase');
+			Response::redirect('manage/phase');
 		}
 	}
 }
