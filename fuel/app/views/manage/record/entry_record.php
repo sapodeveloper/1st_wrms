@@ -17,7 +17,7 @@
 				<td><?php echo $launch->group->group_name; ?></td>
 				<td>
 					<?php echo Html::anchor('index/manage/record/InputRecord/'.$launch->id, '記録登録', array('class' => 'btn btn-success')); ?>
-					<?php echo Html::anchor('index/manage/record/GroupRecord/'.$launch->id, 'グループ記録確認', array('class' => 'btn btn-success')); ?>
+					<?php echo Html::anchor('index/manage/record/GroupRecord/'.$launch->group->id, 'グループ記録確認', array('class' => 'btn btn-success')); ?>
 					<?php echo Html::anchor('index/manage/record/complete/'.$launch->id, '登録完了', array('class' => 'btn btn-success')); ?>
 			</tr>
 		<?php $count++; ?>
