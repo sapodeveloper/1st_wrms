@@ -25,19 +25,19 @@
 				}
 				elseif($aep->condition == 1) #ロケット作成
 				{
-					printf("<td rowspan='2'>完了</td><td rowspan='2'>作成中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
+					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>作成中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
 				}
 				elseif($aep->condition == 2) #打ち上げスタンバイ
 				{
-					printf("<td rowspan='2'>完了</td><td rowspan='2'>完了</td><td rowspan='2'>スタンバイ中</td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
+					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>スタンバイ中</td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
 				}
 				elseif($aep->condition == 3) #記録中
 				{
-					printf("<td rowspan='2'>完了</td><td rowspan='2'>完了</td><td rowspan='2'>完了</td><td rowspan='2'>記録中</td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
+					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>記録中</td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
 				}
 				elseif($aep->condition == 4) #全フェーズ終了
 				{
-					printf("<td rowspan='2'>完了</td><td rowspan='2'>完了</td><td rowspan='2'>完了</td><td rowspan='2'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td>");
+					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td>");
 				}
 			?>
 			<td>
