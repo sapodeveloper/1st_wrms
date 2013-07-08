@@ -5,7 +5,7 @@
 		<td>グループ名</td>
 		<td colspan="4">フェーズ状態</td>
 		<td rowspan="2">判定</td>
-		<td rowspan="2">操作</td>
+		<td rowspan="2" colspan="2">操作</td>
 	</tr>
 	<tr>
 		<td>所属高校</td>
@@ -48,6 +48,11 @@
 					}
 				?>
 			</td>
+			<td>
+				<?php
+					echo Html::anchor('/index/manage/phase//'.$aep->id, '辞退処理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
+				?>
+			</td>
 		</tr>
 		<tr>
 			<td><?php echo $aep->group->school->school_name; ?></td>
@@ -56,6 +61,14 @@
 					if($aep->condition < 4)
 					{
 						echo Html::anchor('/index/manage/phase/forward/'.$aep->id, '次段階', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
+					}
+				?>
+			</td>
+			<td>
+				<?php 
+					if($aep->condition == 4)
+					{
+						echo Html::anchor('/index/manage/phase/forward/'.$aep->id, 'リスト除外', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
 					}
 				?>
 			</td>

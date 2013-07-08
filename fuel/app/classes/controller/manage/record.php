@@ -56,6 +56,7 @@ class Controller_Manage_Record extends Controller_Manage
 	public function action_EntryRecord()
 	{
 		$data['launches'] = Model_WaitGroupList::find('all', array('where' => array('condition' => 3)));
+		$data['standbys'] = Model_WaitGroupList::find('all', array('where' => array('condition' => 2)));
 		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(記録登録画面)');
  		$view->content=View::forge('manage/record/entry_record', $data);
@@ -113,6 +114,26 @@ class Controller_Manage_Record extends Controller_Manage
  		$view->set_global('title','水ロケット管理システム(グループ記録画面)');
  		$view->content=View::forge('manage/record/group_record', $data);
  		return $view;
+	}
+
+	public function action_NextStep($id = null)
+	{
+		if ( ! $wgl = Model_WaitGroupList::find($id))
+		{
+			Session::set_flash('error', '指定されたidのエントリーは存在しません');
+			Response::redirect('index/manage/record/EntryRecord');
+		}
+		$wgl->condition = 3;
+		if ($wgl->save())
+		{
+			Session::set_flash('success', '指定グループのフェーズを完了にしました');
+			Response::redirect('index/manage/record/EntryRecord');
+		}
+		else
+		{
+			Session::set_flash('error', '処理失敗');
+			Response::redirect('index/manage/record/EntryRecord');
+		}
 	}
 
 	public function action_complete($id = null)
