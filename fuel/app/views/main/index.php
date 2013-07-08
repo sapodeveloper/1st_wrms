@@ -53,11 +53,13 @@
 							<td>
 								<?php
 									if($wgl->condition == 0){
-										echo "ロケット作成中";
+										echo "未エントリー";
 									}elseif ($wgl->condition == 1) {
-										echo "スタンバイ";
+										echo "ロケット作成中";
 									}elseif ($wgl->condition == 2) {
-										echo "発射済";
+										echo "スタンバイ";
+									}elseif ($wgl->condition == 3) {
+										echo "記録中";
 									}
 								?>
 							</td>

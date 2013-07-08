@@ -5,7 +5,7 @@ class Controller_Main extends Controller
 	public function action_index()
 	{
 		$data['records'] = Model_Record::find('all', array('where' => array('condition' => 1), 'order_by' => array('x_distance' => 'desc'), 'limit' => 10));
- 		$data['wait_group_lists'] = Model_WaitGroupList::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition', 1)))));
+ 		$data['wait_group_lists'] = Model_WaitGroupList::find('all', array('where' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3)))),'order_by' => array('condition' => 'desc')));
  		$view=View::forge('layout/application');
  		$view->set_global('title','水ロケット管理システム');
  		$view->header=View::forge('layout/header');
@@ -24,11 +24,8 @@ class Controller_Main extends Controller
 					'school_url' => '',
 					'condition' => 1,
 				));
-				if(!$school->school_name=='')
-				{
-					$school and $school->save();
-					$school_id = $school->id;
-				}
+				$school and $school->save();
+				$school_id = $school->id;
 			}else{
 				$school_id = Input::post('school_id');
 			}
@@ -52,7 +49,7 @@ class Controller_Main extends Controller
 				{
 					$wgl = Model_WaitGroupList::forge(array(
 						'group_id' => $group->id,
-						'condition' => 0,
+						'condition' => 1,
 					));
 
 					if ($wgl and $wgl->save())

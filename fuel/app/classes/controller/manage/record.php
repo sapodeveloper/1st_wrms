@@ -120,18 +120,18 @@ class Controller_Manage_Record extends Controller_Manage
 		if ( ! $wgl = Model_WaitGroupList::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
-			Response::redirect('index/manage/record/input_record');
+			Response::redirect('index/manage/record/EntryRecord');
 		}
 		$wgl->condition = 4;
 		if ($wgl->save())
 		{
 			Session::set_flash('success', '指定グループのフェーズを完了にしました');
-			Response::redirect('index/manage/record/input_record');
+			Response::redirect('index/manage/record/EntryRecord');
 		}
 		else
 		{
 			Session::set_flash('error', '処理失敗');
-			Response::redirect('index/manage/record/input_record');
+			Response::redirect('index/manage/record/EntryRecord');
 		}
 	}
 
