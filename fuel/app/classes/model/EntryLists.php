@@ -6,6 +6,7 @@ class Model_EntryLists extends \Orm\Model
 		'id',
 		'group_id',
 		'condition',
+		'decline_condition'
 		'created_at',
 		'updated_at',
 	);
@@ -27,6 +28,7 @@ class Model_EntryLists extends \Orm\Model
 		$val = Validation::forge($factory);
 		$val->add_field('group_id','Group Id','required|valid_string[is_numeric]');
 		$val->add_field('condition','Condition','valid_string[numeric]');
+		$val->add_field('decline_condition','DeclineCondition','valid_string[numeric]');
 
 		return $val;
 	}
