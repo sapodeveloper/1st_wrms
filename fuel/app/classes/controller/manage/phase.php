@@ -11,6 +11,33 @@ class Controller_Manage_Phase extends Controller_Manage
  		return $view;
 	}
 
+	public function action_NotComplete()
+	{
+		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 7))))))));
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
+ 		$view->content=View::forge('manage/phase/not_complete_list', $data);
+ 		return $view;
+	}
+
+	public function action_Complete()
+	{
+		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 4),'or' => array(array('condition' => 5)))));
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
+ 		$view->content=View::forge('manage/phase/complete_list', $data);
+ 		return $view;
+	}
+
+	public function action_DeclineList()
+	{
+		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array('condition' => 6)));
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
+ 		$view->content=View::forge('manage/phase/decline_list', $data);
+ 		return $view;
+	}
+
 	public function action_forward($id = null)
 	{
 		if ( ! $wgl = Model_EntryLists::find($id))
@@ -84,6 +111,7 @@ class Controller_Manage_Phase extends Controller_Manage
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');
 		}
+		$wgl->decline_condition = $wgl->condition;
 		$wgl->condition = 6;
 		if ($wgl->save())
 		{
@@ -97,7 +125,27 @@ class Controller_Manage_Phase extends Controller_Manage
 		}
 	}
 
-		public function action_repair($id = null)
+	public function action_redecline($id = null)
+	{
+		if ( ! $wgl = Model_EntryLists::find($id))
+		{
+			Session::set_flash('error', '指定されたidのエントリーは存在しません');
+			Response::redirect('manage/phase');
+		}
+		$wgl->condition = $wgl->decline_condition;
+		if ($wgl->save())
+		{
+			Session::set_flash('success', '更新成功');
+			Response::redirect('manage/phase');
+		}
+		else
+		{
+			Session::set_flash('error', '更新失敗');
+			Response::redirect('manage/phase');
+		}
+	}
+
+	public function action_repair($id = null)
 	{
 		if ( ! $wgl = Model_EntryLists::find($id))
 		{

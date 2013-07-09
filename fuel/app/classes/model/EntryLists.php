@@ -6,7 +6,7 @@ class Model_EntryLists extends \Orm\Model
 		'id',
 		'group_id',
 		'condition',
-		'decline_condition'
+		'decline_condition',
 		'created_at',
 		'updated_at',
 	);

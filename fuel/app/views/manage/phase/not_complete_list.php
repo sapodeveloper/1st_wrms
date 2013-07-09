@@ -1,7 +1,7 @@
 <h3>全グループフェーズ管理</h3>
 <ul class="nav nav-tabs">
-	<li class="active"><?php echo Html::anchor('manage/phase/', '全グループフェーズ'); ?></li>
-	<li><?php echo Html::anchor('manage/phase/NotComplete', '未完了フェーズ'); ?></li>
+	<li><?php echo Html::anchor('manage/phase/', '全グループフェーズ'); ?></li>
+	<li class="active"><?php echo Html::anchor('manage/phase/NotComplete', '未完了フェーズ'); ?></li>
 	<li><?php echo Html::anchor('manage/phase/Complete', '完了済エントリー'); ?></li>
 	<li><?php echo Html::anchor('manage/phase/DeclineList', '辞退処理済エントリー'); ?></li>
 </ul>
@@ -50,43 +50,16 @@
 				{
 					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td>");
 				}
-				elseif($aep->condition == 6) #辞退処理
-				{
-					if($aep->decline_condition == 0) #エントリー
-					{ 
-						printf("<td rowspan='2'>手続き中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>辞退</td>");
-					}
-					elseif($aep->decline_condition == 1) #ロケット作成
-					{
-						printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>作成中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>辞退</td>");
-					}
-					elseif($aep->decline_condition == 7) #ロケット作成
-					{
-						printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>修理中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>辞退</td>");
-					}
-					elseif($aep->decline_condition == 2) #打ち上げスタンバイ
-					{
-						printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>スタンバイ中</td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>辞退</td>");
-					}
-					elseif($aep->decline_condition == 3) #記録中
-					{
-						printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>記録中</td><td rowspan='2' bgcolor='#f2dede'>辞退</td>");
-					}
-				}
 			?>
-			<?php 
-				if($aep->condition < 6)
-				{
-					printf("<td>");
-					echo Html::anchor('/manage/phase/back/'.$aep->id, '前段階', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
-					printf("</td>");
-				}
-				else
-				{
-					printf("<td colspan='2' rowspan='2'>");
-					echo Html::anchor('/manage/phase/redecline/'.$aep->id, '復帰処理', array('class' => 'btn btn-danger', 'onclick' => "return confirm('よろしいですか？')"));
-					printf("</td>");
-				}
+			<td>
+				<?php 
+					if($aep->condition > 0)
+					{
+						echo Html::anchor('/manage/phase/back/'.$aep->id, '前段階', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
+					}
+				?>
+			</td>
+			<?php
 				if($aep->condition == 4)
 				{
 					printf("<td rowspan='2'>");
@@ -103,20 +76,22 @@
 		</tr>
 		<tr>
 			<td><?php echo $aep->group->school->school_name; ?></td>
+			<td>
+				<?php 
+					if($aep->condition < 4 || $aep->condition == 7)
+					{
+						echo Html::anchor('/manage/phase/forward/'.$aep->id, '次段階', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
+					}
+				?>
+			</td>
 			<?php 
-				if($aep->condition < 4 || $aep->condition == 7)
-				{
-					printf("<td>");
-					echo Html::anchor('/manage/phase/forward/'.$aep->id, '次段階', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
-					printf("</td>");
-				}
 				if($aep->condition == 3)
 				{
 					printf("<td>");
 					echo Html::anchor('/manage/phase/repair/'.$aep->id, 'ロケット修理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('ロケット修理フェーズにします。よろしいですか？')"));
 					printf("</td>");
 				}
-				elseif($aep->condition != 4 && $aep->condition != 6)
+				elseif($aep->condition != 4)
 				{
 					printf("<td></td>");
 				}
