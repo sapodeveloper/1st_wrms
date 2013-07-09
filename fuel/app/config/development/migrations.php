@@ -11,6 +11,7 @@ return array(
 				2 => '006_create_groups',
 				3 => '007_create_records',
 				4 => '008_create_wait_group_list',
+				5 => '009_rename_table_wait_group_list_to_entry_lists',
 			),
 		),
 		'module' => 

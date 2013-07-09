@@ -1,6 +1,6 @@
 <?php
 
-class Model_WaitGroupList extends \Orm\Model
+class Model_EntryLists extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
@@ -20,7 +20,7 @@ class Model_WaitGroupList extends \Orm\Model
 			'mysql_timestamp' => true,
 		),
 	);
-	protected static $_table_name = 'wait_group_list';
+	protected static $_table_name = 'entry_lists';
 
 	public static function validate($factory)
 	{
