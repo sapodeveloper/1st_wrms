@@ -1,4 +1,4 @@
-<h3>全グループフェーズ管理</h3>
+<h3>フェーズ管理</h3>
 <ul class="nav nav-tabs">
 	<li><?php echo Html::anchor('manage/phase/', '全グループフェーズ'); ?></li>
 	<li><?php echo Html::anchor('manage/phase/NotComplete', '未完了フェーズ'); ?></li>
