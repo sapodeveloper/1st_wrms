@@ -2,26 +2,18 @@
     .big{
         height: 100px;
         font-size: 40px;
+        text-align: center;
     }
+
 </style>
-<script type="text/javascript">
-$(function(){
-    $('#myCarousel').carousel({
-        interval: 10000
-    })
-    setTimeout("location.reload()",60000);
-});
-</script>
-<div id="myCarousel" class="carousel slide">
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item">
-        <div class="row">
-            <button class="btn big btn-primary span4" type="button">飛距離ランキング</button>
-            <button class="btn big span4 disabled" type="button">グループランキング</button>
-            <button class="btn big span4 disabled" type="button">今日のランキング</button>
-        </div>
-        <br/>
+<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">飛距離ランキング</a></li>
+        <li><a href="#tab2" data-toggle="tab">グループランキング</a></li>
+        <li><a href="#tab3" data-toggle="tab">今日のランキング</a></li>
+    </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
         <h1 align="center">飛距離ランキング</h1>
         <br>
         <h2>
@@ -49,13 +41,7 @@ $(function(){
         </table>
         </h2>
     </div>
-    <div class="item">
-        <div class="row">
-            <button class="btn big span4 disabled" type="button">飛距離ランキング</button>
-            <button class="btn big btn-primary span4" type="button">グループランキング</button>
-            <button class="btn big span4 disabled" type="button">今日のランキング</button>
-        </div>
-        <br/>
+    <div class="tab-pane" id="tab2">
         <h1 align="center">グループランキング</h1>
         <br>
         <h2>
@@ -83,13 +69,7 @@ $(function(){
         </table>
         </h2>
     </div>
-    <div class="item">
-        <div class="row">
-            <button class="btn big span4 disabled" type="button">飛距離ランキング</button>
-            <button class="btn big span4 disabled" type="button">グループランキング</button>
-            <button class="btn big btn-primary span4" type="button">今日のランキング</button>
-        </div>
-        <br/>
+    <div class="tab-pane" id="tab3">
         <h1 align="center">今日のランキング</h1>
         <br>
         <h2>
