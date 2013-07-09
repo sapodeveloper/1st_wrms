@@ -27,6 +27,10 @@
 				{
 					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>作成中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
 				}
+				elseif($aep->condition == 7) #ロケット作成
+				{
+					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>修理中</td><td rowspan='2'></td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
+				}
 				elseif($aep->condition == 2) #打ち上げスタンバイ
 				{
 					printf("<td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2' bgcolor='#dff0d8'>完了</td><td rowspan='2'>スタンバイ中</td><td rowspan='2'></td><td rowspan='2' bgcolor='#f2dede'>未完了</td>");
@@ -48,30 +52,43 @@
 					}
 				?>
 			</td>
-			<td>
-				<?php
-					echo Html::anchor('/manage/phase//'.$aep->id, '辞退処理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
-				?>
-			</td>
+			<?php
+				if($aep->condition == 4)
+				{
+					printf("<td rowspan='2'>");
+					echo Html::anchor('/manage/phase/outlist/'.$aep->id, 'リスト除外', array('class' => 'btn btn-info', 'onclick' => "return confirm('このリストから除外します。よろしいですか？')"));
+					printf("</td>");
+				}
+				elseif($aep->condition < 4 || $aep->condition == 7)
+				{
+					printf("<td>");
+					echo Html::anchor('/manage/phase/decline'.$aep->id, '辞退処理', array('class' => 'btn btn-danger', 'onclick' => "return confirm('辞退処理します。よろしいですか？')"));
+					printf("</td>");
+				}
+			?>
 		</tr>
 		<tr>
 			<td><?php echo $aep->group->school->school_name; ?></td>
 			<td>
 				<?php 
-					if($aep->condition < 4)
+					if($aep->condition < 4 || $aep->condition == 7)
 					{
 						echo Html::anchor('/manage/phase/forward/'.$aep->id, '次段階', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
 					}
 				?>
 			</td>
-			<td>
-				<?php 
-					if($aep->condition == 4)
-					{
-						echo Html::anchor('/manage/phase/forward/'.$aep->id, 'リスト除外', array('class' => 'btn btn-success', 'onclick' => "return confirm('よろしいですか？')"));
-					}
-				?>
-			</td>
+			<?php 
+				if($aep->condition == 3)
+				{
+					printf("<td>");
+					echo Html::anchor('/manage/phase/repair/'.$aep->id, 'ロケット修理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('ロケット修理フェーズにします。よろしいですか？')"));
+					printf("</td>");
+				}
+				elseif($aep->condition != 4)
+				{
+					printf("<td></td>");
+				}
+			?>
 		</tr>
 	<?php endforeach; ?>
 </table>
