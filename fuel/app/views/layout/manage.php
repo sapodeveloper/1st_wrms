@@ -43,6 +43,7 @@
 									<li><?php echo Html::anchor('/manage', '管理トップ'); ?></li>
 									<li><?php echo Html::anchor('/manage/school', '登録高校管理'); ?></li>
 									<li><?php echo Html::anchor('/manage/group', 'グループ管理'); ?></li>
+									<li><?php echo Html::anchor('/manage/event', 'イベント管理'); ?></li>
 									<li><?php echo Html::anchor('/manage/phase', 'フェーズ管理'); ?></li>
 									<li><?php echo Html::anchor('/manage/control', '発射管制管理'); ?></li>
 									<li><?php echo Html::anchor('/manage/record/EntryRecord', 'レコード登録'); ?></li>

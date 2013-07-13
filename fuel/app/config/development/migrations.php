@@ -13,6 +13,7 @@ return array(
 				4 => '008_create_wait_group_list',
 				5 => '009_rename_table_wait_group_list_to_entry_lists',
 				6 => '010_add_decline_condition_to_entry_lists',
+				7 => '011_create_event',
 			),
 		),
 		'module' => 
