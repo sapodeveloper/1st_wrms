@@ -5,6 +5,7 @@
 			<td>ID</td>
 			<td>学校名</td>
 			<td>グループ名</td>
+			<td>レコード数</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -15,6 +16,7 @@
 				<td><?php echo $count ?></td>
 				<td><?php echo $launch->group->school->school_name; ?></td>
 				<td><?php echo $launch->group->group_name; ?></td>
+				<td><?php echo $launch->group->records; ?></td>
 				<td>
 					<?php echo Html::anchor('manage/record/InputRecord/'.$launch->id, '記録登録', array('class' => 'btn btn-large btn-danger')); ?>
 					<?php echo Html::anchor('manage/record/GroupRecord/'.$launch->group->id, 'グループ記録確認', array('class' => 'btn btn-primary')); ?>
