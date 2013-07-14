@@ -4,9 +4,11 @@ class Controller_Manage_Event extends Controller_Manage
 {	
 	public function action_index()
 	{
+		$data['now_event'] = Model_Event::find('all', array('where' => array('condition' => 1)));
+		$data['events'] = Model_Event::find('all');
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(登録高校管理画面)');
- 		$view->content=View::forge('manage/event/index');
+ 		$view->content=View::forge('manage/event/index', $data);
  		return $view;
 	}
 
@@ -31,32 +33,29 @@ class Controller_Manage_Event extends Controller_Manage
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_School::validate('create');
+			$val = Model_Event::validate('create');
 			
 			if ($val->run())
 			{
-				$school = Model_School::forge(array(
-					'school_name' => Input::post('school_name'),
-					'school_url' => Input::post('school_url'),
+				$event = Model_Event::forge(array(
+					'event_name' => Input::post('event_name'),
+					'event_date' => Input::post('event_date'),
 					'condition' => 1,
 				));
 
-				//重複確認
-				$school_count=Model_School::find('all', array('where' => array('school_name' => $school->school_name)));
-				if($school_count>0){
-					Session::set_flash('error', '既に該当高校が登録されています');
-					Response::redirect('manage/school');
-				}
-				if ($school and $school->save())
-				{
-					Session::set_flash('success', 'Added school #'.$school->id.'.');
+				//$event->event_date = strtotime((int)(str_replace("/", "", $event->event_date)));
+				//$event->event_date = strtotime($event->event_date);
 
-					Response::redirect('manage/school');
+				if ($event and $event->save())
+				{
+					Session::set_flash('success', 'Added event #'.$event->id.'.');
+
+					Response::redirect('manage/event');
 				}
 
 				else
 				{
-					Session::set_flash('error', 'Could not save school.');
+					Session::set_flash('error', 'Could not save event.');
 				}
 			}
 			else
@@ -66,8 +65,8 @@ class Controller_Manage_Event extends Controller_Manage
 		}
 
  		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(新規高校登録画面)');
- 		$view->content=View::forge('manage/school/create');
+ 		$view->set_global('title','水ロケット管理システム');
+ 		$view->content=View::forge('manage/event/create');
  		return $view;
 	}
 
