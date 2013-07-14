@@ -23,7 +23,7 @@
 			<td rowspan='2' bgcolor='#dff0d8'>完了</td>
 			<td rowspan='2' bgcolor='#dff0d8'>完了</td>
 			<td rowspan='2' bgcolor='#dff0d8'>完了</td>
-			<td rowspan="2">
+			<td rowspan='2'>
 				<?php 
 					if($aep->condition > 0)
 					{
@@ -31,14 +31,6 @@
 					}
 				?>
 			</td>
-			<?php
-				if($aep->condition == 4)
-				{
-					printf("<td rowspan='2'>");
-					echo Html::anchor('/manage/phase/outlist/'.$aep->id, 'リスト除外', array('class' => 'btn btn-info', 'onclick' => "return confirm('このリストから除外します。よろしいですか？')"));
-					printf("</td>");
-				}
-			?>
 		</tr>
 		<tr>
 			<td><?php echo $aep->group->school->school_name; ?></td>

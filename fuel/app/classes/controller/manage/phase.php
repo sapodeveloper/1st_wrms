@@ -4,37 +4,44 @@ class Controller_Manage_Phase extends Controller_Manage
 {	
 	public function action_index()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4),'or' => array(array('condition' => 6),'or' => array(array('condition' => 7))))))))));
- 		$view=View::forge('layout/manage');
+	 	$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
- 		$view->content=View::forge('manage/phase/index', $data);
+ 		$view->content=View::forge('manage/phase/index');
+ 		return $view;
+	}
+
+	public function action_AllPhase()
+	{
+		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4),'or' => array(array('condition' => 6),'or' => array(array('condition' => 7))))))))));
+ 		$view=View::forge('manage/phase/all_phase', $data);
  		return $view;
 	}
 
 	public function action_NotComplete()
 	{
 		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 7))))))));
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
- 		$view->content=View::forge('manage/phase/not_complete_list', $data);
+ 		$view=View::forge('manage/phase/not_complete_list', $data);
  		return $view;
 	}
 
 	public function action_Complete()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 4),'or' => array(array('condition' => 5)))));
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
- 		$view->content=View::forge('manage/phase/complete_list', $data);
+		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 4))));
+ 		$view=View::forge('manage/phase/complete_list', $data);
  		return $view;
 	}
 
 	public function action_DeclineList()
 	{
 		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array('condition' => 6)));
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(打ち上げ管制管理画面)');
- 		$view->content=View::forge('manage/phase/decline_list', $data);
+ 		$view=View::forge('manage/phase/decline_list', $data);
+ 		return $view;
+	}
+
+	public function action_HideList()
+	{
+		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array('condition' => 5)));
+ 		$view=View::forge('manage/phase/hide_list', $data);
  		return $view;
 	}
 

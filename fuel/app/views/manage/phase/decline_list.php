@@ -1,10 +1,3 @@
-<h3>フェーズ管理</h3>
-<ul class="nav nav-tabs">
-	<li><?php echo Html::anchor('manage/phase/', '全グループフェーズ'); ?></li>
-	<li><?php echo Html::anchor('manage/phase/NotComplete', '未完了フェーズ'); ?></li>
-	<li><?php echo Html::anchor('manage/phase/Complete', '完了済エントリー'); ?></li>
-	<li class="active"><?php echo Html::anchor('manage/phase/DeclineList', '辞退処理済エントリー'); ?></li>
-</ul>
 <?php if ($all_entry_phase): ?>
 <table class="table table-bordered">
 	<tr>
