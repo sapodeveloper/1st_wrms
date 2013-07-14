@@ -4,8 +4,8 @@
 		<tr>
 			<td></td>
 			<td>レコードID</td>
-			<td>X軸</td>
 			<td>Y軸</td>
+			<td>X軸</td>
 			<td>判定</td>
 			<td></td>
 		</tr>
@@ -13,11 +13,20 @@
 	<tbody>
 		<?php $count = 1; ?>
 		<?php foreach ($group_records as $group_record): ?>
-			<tr>
+			<?php
+				if($group_record->condition == 1)
+				{
+					printf("<tr bgcolor=\"#dff0d8\">");
+				}
+				elseif ($group_record->condition != 1) {
+					printf("<tr bgcolor=\"#f2dede\">");
+				}
+			?>
+			
 				<td><?php echo $count; ?></td>
 				<td><?php echo $group_record->id; ?></td>
-				<td><?php echo $group_record->x_distance; ?>m</td>
 				<td><?php echo $group_record->y_distance; ?>m</td>
+				<td><?php echo $group_record->x_distance; ?>m</td>
 				<td>
 					<?php
 						if($group_record->condition == 1)
@@ -30,9 +39,14 @@
 						elseif ($group_record->condition == 3) {
 							printf("無効測定(有効測定回数外)");
 						}
+						elseif ($group_record->condition == 4) {
+							printf("無効測定(例外)");
+						}
 					?>
 				</td>
-				<td></td>
+				<td>
+					<?php echo Html::anchor('manage/record/edit/'.$group_record->id, '編集', array('class' => 'btn btn-success')); ?>
+				</td>
 			</tr>
 			<?php $count++; ?>
 		<?php endforeach; ?>

@@ -107,6 +107,7 @@ class Controller_Manage_Record extends Controller_Manage
 		$data['decision'][1] = '有効';
 		$data['decision'][2] = '無効(測定不可)';
 		$data['decision'][3] = '無効(有効測定回数外)';
+		$data['decision'][4] = '無効(例外)';
 		$data['launch'] = Model_EntryLists::find($id);
 		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(記録登録画面)');
@@ -162,6 +163,50 @@ class Controller_Manage_Record extends Controller_Manage
 			Session::set_flash('error', '処理失敗');
 			Response::redirect('manage/record/EntryRecord');
 		}
+	}
+
+	public function action_edit($id=null){
+		$view=View::forge('layout/manage');
+		is_null($id) and Response::redirect('manage/record/GroupRecord/'.$record->group_id);
+
+		if ( ! $record = Model_Record::find($id))
+		{
+			Session::set_flash('error', '指定されたidの測定記録は存在しません');
+			Response::redirect('manage/record/GroupRecord/'.$record->group_id);
+		}
+
+		$val = Model_Record::validate('edit');
+
+		if ($val->run())
+		{
+			$record->x_distance = Input::post('x_distance');
+			$record->y_distance = Input::post('y_distance');
+			$record->condition = Input::post('condition');
+			$record->event_id = Input::post('event_id');
+
+			if ($record->save())
+			{
+				Session::set_flash('success', '更新成功');
+				Response::redirect('manage/record/GroupRecord/'.$record->group_id);
+			}
+			else
+			{
+				Session::set_flash('error', '更新失敗');
+			}
+		}
+		$data['record'] = Model_Record::find($id);
+		$event_data = Model_Event::find('all');
+		foreach($event_data as $row):
+			$data['event_data'][$row->id]=$row->event_name;
+		endforeach;
+		$data['decision'][1] = '有効';
+		$data['decision'][2] = '無効(測定不可)';
+		$data['decision'][3] = '無効(有効測定回数外)';
+		$data['decision'][4] = '無効(例外)';
+
+ 		$view->set_global('title','水ロケット管理システム(既存レコード情報編集画面)');
+ 		$view->content=View::forge('manage/record/edit',$data);
+ 		return $view;
 	}
 
 }
