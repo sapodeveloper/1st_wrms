@@ -117,6 +117,7 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_GroupRecord($id = null)
 	{
+		$data['max_record'] = Model_Record::find('first', array('where' => array('group_id' => $id), 'order_by' => array('y_distance' => 'desc')));
 		$data['group_records'] = Model_Record::find('all', array('where' => array('group_id' => $id)));
 		$data['group_name'] = Model_Group::find($id);
 		$view=View::forge('layout/manage');

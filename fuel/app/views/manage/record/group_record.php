@@ -1,4 +1,24 @@
-<h3><?php echo $group_name->group_name; ?>のレコード一覧</h3>
+<h2><?php echo $group_name->group_name; ?>のレコード一覧</h2>
+<h3>最高記録</h3>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>レコードID</td>
+			<td>Y軸</td>
+			<td>X軸</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?php echo $max_record->id; ?></td>
+			<td><?php echo $max_record->y_distance; ?>m</td>
+			<td><?php echo $max_record->x_distance; ?>m</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<h3>全記録</h3>
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -17,6 +37,9 @@
 				if($group_record->condition == 1)
 				{
 					printf("<tr bgcolor=\"#dff0d8\">");
+				}
+				elseif ($group_record->id == $max_record->id) {
+					printf("<tr bgcolor=\"#fcf8e3\">");
 				}
 				elseif ($group_record->condition != 1) {
 					printf("<tr bgcolor=\"#f2dede\">");
