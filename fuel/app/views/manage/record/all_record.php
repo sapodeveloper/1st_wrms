@@ -22,7 +22,23 @@
 				<td><?php echo $record->group->school->school_name; ?></td>
 				<td><?php echo $record->group->group_name; ?></td>
 				<td><?php echo $record->x_distance; ?>m</td>
-				<td><?php if($record->condition == 1){ echo '記録済'; }else{ echo '未記録'; } ?></td>
+				<td>
+					<?php
+						if($record->condition == 1)
+						{
+							printf("有効測定");
+						}
+						elseif ($record->condition == 2) {
+							printf("無効測定(測定不可)");
+						}
+						elseif ($record->condition == 3) {
+							printf("無効測定(有効測定回数外)");
+						}
+						elseif ($record->condition == 4) {
+							printf("無効測定(例外)");
+						}
+					?>
+				</td>
 				<td>
 					<?php echo Html::anchor('manage/record/view/'.$record->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
 					<?php echo Html::anchor('manage/record/edit/'.$record->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
