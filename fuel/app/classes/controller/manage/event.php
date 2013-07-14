@@ -12,21 +12,25 @@ class Controller_Manage_Event extends Controller_Manage
  		return $view;
 	}
 
-	public function action_view($id = null)
+	public function action_NowEvent()
 	{
-		is_null($id) and Response::redirect('manage/school');
-
-		if ( ! $data['school'] = Model_School::find($id))
-		{
-			Session::set_flash('error', 'Could not find school #'.$id);
-			Response::redirect('manage/school');
-		}
-
-		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(登録高校詳細)');
- 		$view->content=View::forge('manage/school/view', $data);
+		$data['now_event'] = Model_Event::find('all', array('where' => array('condition' => 1)));
+ 		$view=View::forge('manage/event/now_event', $data);
  		return $view;
+	}
 
+	public function action_AllEvent()
+	{
+		$data['events'] = Model_Event::find('all');
+ 		$view=View::forge('manage/event/all_event', $data);
+ 		return $view;
+	}
+
+	public function action_HideEvent()
+	{
+		$data['events'] = Model_Event::find('all');
+ 		$view=View::forge('manage/event/Hide_event', $data);
+ 		return $view;
 	}
 
 	public function action_create()
@@ -40,11 +44,8 @@ class Controller_Manage_Event extends Controller_Manage
 				$event = Model_Event::forge(array(
 					'event_name' => Input::post('event_name'),
 					'event_date' => Input::post('event_date'),
-					'condition' => 1,
+					'condition' => 0,
 				));
-
-				//$event->event_date = strtotime((int)(str_replace("/", "", $event->event_date)));
-				//$event->event_date = strtotime($event->event_date);
 
 				if ($event and $event->save())
 				{
