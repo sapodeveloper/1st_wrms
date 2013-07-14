@@ -16,7 +16,7 @@
 					<td></td>
 					<td>
 						<?php echo Html::anchor('manage/event/start/'.$event->id, '実施開始', array('class' => 'btn btn-success')); ?>
-						<?php echo Html::anchor('manage/event/hide/'.$event->id, '再表示', array('class' => 'btn btn-success')); ?>
+						<?php echo Html::anchor('manage/event/reoutput/'.$event->id, '再表示', array('class' => 'btn btn-success')); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

@@ -10,6 +10,7 @@
 <div>
     <ul id="index-tabs" class="nav nav-tabs">
         <li><a href="/wrms/manage/event/NowEvent" data-toggle="tab">開催設定イベント</a></li>
+        <li><a href="/wrms/manage/event/NotStartEvent" data-toggle="tab">未開催イベント</a></li>
         <li><a href="/wrms/manage/event/AllEvent" data-toggle="tab">全イベント</a></li>
         <li><a href="/wrms/manage/event/HideEvent" data-toggle="tab">非表示イベント</a></li>
     </ul>

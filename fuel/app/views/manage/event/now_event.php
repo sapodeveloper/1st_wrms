@@ -8,8 +8,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php if($now_event): ?>
-			<?php foreach ($now_event as $ne): ?>
+		<?php if($events): ?>
+			<?php foreach ($events as $ne): ?>
 				<tr>
 					<td><?php echo $ne->event_name; ?></td>
 					<td><?php echo $ne->event_date; ?></td>
