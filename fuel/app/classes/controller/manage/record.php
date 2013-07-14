@@ -4,35 +4,36 @@ class Controller_Manage_Record extends Controller_Manage
 {	
 	public function action_index()
 	{
+ 		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
+ 		$view->content=View::forge('manage/record/index');
+ 		return $view;
+	}
+
+	public function action_AllRecord()
+	{
 		$data['records'] = Model_Record::find('all');
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
- 		$view->content=View::forge('manage/record/all_record', $data);
+ 		$view=View::forge('manage/record/record', $data);
  		return $view;
 	}
 
-	public function action_NullAllRecord()
+	public function action_ValidRecord()
 	{
-		$data['records'] = Model_Record::find('all', array('where' => array('condition' => 0)));
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
- 		$view->content=View::forge('manage/record/null_all_record', $data);
+		$data['records'] = Model_Record::find('all', array('where' => array('condition' => 1)));
+ 		$view=View::forge('manage/record/record', $data);
  		return $view;
 	}
 
-	public function action_GroupNullRecord()
+	public function action_NotValidRecord()
 	{
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
- 		$view->content=View::forge('manage/record/group_null_record');
+		$data['records'] = Model_Record::find('all', array('where' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4))))));
+ 		$view=View::forge('manage/record/record', $data);
  		return $view;
 	}
 
 	public function action_SearchRecord()
 	{
- 		$view=View::forge('layout/manage');
- 		$view->set_global('title','水ロケット管理システム(記録管理画面)');
- 		$view->content=View::forge('manage/record/search_record');
+ 		$view=View::forge('manage/record/search_record');
  		return $view;
 	}
 
