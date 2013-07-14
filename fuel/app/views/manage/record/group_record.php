@@ -18,7 +18,20 @@
 				<td><?php echo $group_record->id; ?></td>
 				<td><?php echo $group_record->x_distance; ?>m</td>
 				<td><?php echo $group_record->y_distance; ?>m</td>
-				<td><?php echo $group_record->condition; ?></td>
+				<td>
+					<?php
+						if($group_record->condition == 1)
+						{
+							printf("有効測定");
+						}
+						elseif ($group_record->condition == 2) {
+							printf("無効測定(測定不可)");
+						}
+						elseif ($group_record->condition == 3) {
+							printf("無効測定(有効測定回数外)");
+						}
+					?>
+				</td>
 				<td></td>
 			</tr>
 			<?php $count++; ?>

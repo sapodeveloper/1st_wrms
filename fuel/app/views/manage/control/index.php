@@ -6,6 +6,7 @@
 			<td>リストID</td>
 			<td>学校名</td>
 			<td>グループ名</td>
+			<td>レコード数</td>
 			<td>フェーズ</td>
 			<td>次フェーズ</td>
 		</tr>
@@ -17,6 +18,7 @@
 				<td><?php echo $count ?></td>
 				<td><?php echo $launch->group->school->school_name; ?></td>
 				<td><?php echo $launch->group->group_name; ?></td>
+				<td><?php echo $launch->group->records; ?></td>
 				<td>記録中</td>
 				<td>
 					<?php echo Html::anchor('manage/control/complete/'.$launch->id, '完了フェーズ', array('class' => 'btn btn-success')); ?>
