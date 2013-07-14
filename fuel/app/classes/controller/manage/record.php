@@ -65,6 +65,7 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_InputRecord($id = null)
 	{
+		$event = Model_Event::find('first', array('where' => array('condition' => 1)));
 		$wgl = Model_EntryLists::find($id);
 		if (Input::method() == 'POST')
 		{
@@ -77,6 +78,7 @@ class Controller_Manage_Record extends Controller_Manage
 					'x_distance' => Input::post('x_distance'),
 					'y_distance' => Input::post('y_distance'),
 					'condition' => Input::post('condition'),
+					'event_id' => $event->id,
 				));
 
 				if ($record and $record->save())

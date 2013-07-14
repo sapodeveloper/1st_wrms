@@ -16,6 +16,7 @@ return array(
 				7 => '011_create_event',
 				8 => '012_add_created_at_and_updated_at_to_event',
 				9 => '013_rename_table_event_to_events',
+				10 => '014_add_event_id_to_records',
 			),
 		),
 		'module' => 
