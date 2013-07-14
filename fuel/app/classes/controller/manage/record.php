@@ -12,7 +12,7 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_AllRecord()
 	{
-		$data['records'] = Model_Record::find('all');
+		$data['records'] = Model_Record::find('all', array('where' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4),'or' => array(array('condition' => 1)))))));
  		$view=View::forge('manage/record/record', $data);
  		return $view;
 	}
@@ -27,6 +27,13 @@ class Controller_Manage_Record extends Controller_Manage
 	public function action_NotValidRecord()
 	{
 		$data['records'] = Model_Record::find('all', array('where' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4))))));
+ 		$view=View::forge('manage/record/record', $data);
+ 		return $view;
+	}
+
+	public function action_DeletedRecord()
+	{
+		$data['records'] = Model_Record::find('all', array('where' => array('condition' => 0)));
  		$view=View::forge('manage/record/record', $data);
  		return $view;
 	}
@@ -209,6 +216,14 @@ class Controller_Manage_Record extends Controller_Manage
  		$view->set_global('title','水ロケット管理システム(既存レコード情報編集画面)');
  		$view->content=View::forge('manage/record/edit',$data);
  		return $view;
+	}
+
+	public function action_delete($id=null)
+	{
+		$record = Model_Record::find($id);
+		$record->condition = 0;
+		$record->save();
+		Response::redirect('manage/record/');
 	}
 
 }

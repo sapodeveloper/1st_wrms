@@ -30,12 +30,17 @@
 						elseif ($record->condition == 4) {
 							printf("無効測定(例外)");
 						}
+						elseif ($record->condition == 0) {
+							printf("削除");
+						}
 					?>
 				</td>
 				<td>
-					<?php echo Html::anchor('manage/record/view/'.$record->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
-					<?php echo Html::anchor('manage/record/edit/'.$record->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-					<?php echo Html::anchor('manage/record/delete/'.$record->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
+					<?php if(!$record->condition == 0){ ?>
+					<?php echo Html::anchor('manage/record/view/'.$record->id, '詳細', array('class' => 'btn btn-info')); ?>
+					<?php echo Html::anchor('manage/record/edit/'.$record->id, '編集', array('class' => 'btn btn-success')); ?>
+					<?php echo Html::anchor('manage/record/delete/'.$record->id, '削除', array('class' => 'btn btn-danger', 'onclick' => "return confirm('削除します。よろしいですか？')")); ?>
+					<?php } ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
