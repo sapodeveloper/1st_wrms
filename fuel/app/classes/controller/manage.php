@@ -16,9 +16,11 @@ class Controller_Manage extends Controller
 	
 	public function action_index()
 	{
+		$data['event'] = Model_Event::find('first', array('where' => array('condition' => 1)));
+		$data['record'] = Model_Record::find('all', array('where' => array('condition' => 1)));
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(管理画面)');
- 		$view->content=View::forge('manage/index');
+ 		$view->content=View::forge('manage/index', $data);
  		return $view;
 	}
 }
