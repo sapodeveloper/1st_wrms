@@ -18,7 +18,10 @@
 				<td><?php echo $launch->group->school->school_name; ?></td>
 				<td><?php echo $launch->group->group_name; ?></td>
 				<td>記録中</td>
-				<td><?php echo Html::anchor('manage/control/complete/'.$launch->id, '完了フェーズ', array('class' => 'btn btn-success')); ?></td>
+				<td>
+					<?php echo Html::anchor('manage/control/complete/'.$launch->id, '完了フェーズ', array('class' => 'btn btn-success')); ?>
+					<?php echo Html::anchor('manage/control/repair/'.$launch->id, 'ロケット修理', array('class' => 'btn btn-warning')); ?>
+				</td>
 			</tr>
 		<?php $count++; ?>
 		<?php endforeach; ?>
@@ -69,6 +72,32 @@
 				<td><?php echo $entry->group->group_name; ?></td>
 				<td>ロケット作成中</td>
 				<td><?php echo Html::anchor('manage/control/standby/'.$entry->id, 'スタンバイフェーズ', array('class' => 'btn btn-success')); ?></td>
+			</tr>
+		<?php $count++; ?>
+		<?php endforeach; ?>
+		
+	</tbody>
+</table>
+<h4>ロケット修理グループリスト</h4>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>リストID</td>
+			<td>学校名</td>
+			<td>グループ名</td>
+			<td>フェーズ</td>
+			<td>次フェーズ</td>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $count = 1; ?>
+		<?php foreach ($repairs as $repair): ?>
+			<tr>
+				<td><?php echo $count ?></td>
+				<td><?php echo $repair->group->school->school_name; ?></td>
+				<td><?php echo $repair->group->group_name; ?></td>
+				<td>ロケット作成中</td>
+				<td><?php echo Html::anchor('manage/control/standby/'.$repair->id, 'スタンバイフェーズ', array('class' => 'btn btn-success')); ?></td>
 			</tr>
 		<?php $count++; ?>
 		<?php endforeach; ?>
