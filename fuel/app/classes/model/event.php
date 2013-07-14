@@ -23,4 +23,12 @@ class Model_Event extends \Orm\Model
 	);
 	protected static $_table_name = 'events';
 
+	public static function validate($factory)
+	{
+		$val = Validation::forge($factory);
+		$val->add_field('event_name',    'Event Name',   'required|max_length[255]');
+		$val->add_field('event_date', 'Event Date', 'required|max_length[255]');
+		return $val;
+	}
+
 }
