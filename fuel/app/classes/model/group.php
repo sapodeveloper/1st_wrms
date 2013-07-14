@@ -14,6 +14,7 @@ class Model_Group extends \Orm\Model
 		'condition',
 		'created_at',
 		'updated_at',
+		'records',
 	);
 
 	protected static $_observers = array(

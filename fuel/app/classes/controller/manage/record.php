@@ -83,6 +83,12 @@ class Controller_Manage_Record extends Controller_Manage
 
 				if ($record and $record->save())
 				{
+					$result = DB::select('*')->from('records')->where('group_id', $record->group_id)->execute();
+					$num_rows = count($result);
+					$group = Model_Group::find($record->group_id);
+					$group->records = $num_rows;
+					$group->save();
+
 					Session::set_flash('success', '記録登録しました');
 
 					Response::redirect('manage/record/EntryRecord');
