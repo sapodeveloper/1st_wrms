@@ -1,4 +1,5 @@
 <h2><?php echo $group_name->group_name; ?>のレコード一覧</h2>
+<?php if($group_records): ?>
 <h3>最高記録</h3>
 <table class="table table-bordered">
 	<thead>
@@ -75,3 +76,6 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
+<?php else: ?>
+<p>記録が存在していません。</p>
+<?php endif; ?>
