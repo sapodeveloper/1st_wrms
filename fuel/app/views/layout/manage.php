@@ -18,13 +18,41 @@
 		      margin-left: 10px;
 		      padding: 1px 5px;
 		    }
+
+		    .brand{
+		    	color: black !important;
+		    }
+
+		    .brand_admin{
+		    	color: white !important;
+		    }
+
+		    .navcolor1{
+		    	background-image: -webkit-linear-gradient(top, #FDB805, #F8B60B) !important;
+		    }
+
+		    .navcolor2{
+		    	background-image: -webkit-linear-gradient(top, #05FD2D, #60F80B) !important;
+		    }
 		</style>
 	</head>
 	<body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
-	 	<div class="navbar-inner">
+		<?php $user = Auth::instance(); ?>
+		<?php $type = $user->get_screen_name() ?>
+		<?php if($type == "admin"): ?>
+	 		<div class="navbar-inner">
+	 	<?php elseif ($type == "controller"): ?>
+	 		<div class="navbar-inner navcolor1">
+	 	<?php elseif ($type == "measurer"): ?>
+	 		<div class="navbar-inner navcolor2">
+	 	<?php endif; ?>
 			<div class="container-fluid">
-	    		<div class="brand"><?php echo $title; ?></div>
+				<?php if($type == "admin"): ?>
+			 		<div class="brand brand_admin"><?php echo $title; ?></div>
+			 	<?php else: ?>
+			 		<div class="brand"><?php echo $title; ?></div>
+			 	<?php endif; ?>
 		    	<div class="nav-collapse collapse">
 		    		<p class="navbar-text pull-right">
         				<?php echo Html::anchor('/session/logout', 'ログアウト'); ?>
