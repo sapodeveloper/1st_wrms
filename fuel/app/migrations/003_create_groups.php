@@ -15,9 +15,10 @@ class Create_groups
 			'group_member3' => array('constraint' => 255, 'type' => 'varchar'),
 			'group_member4' => array('constraint' => 255, 'type' => 'varchar'),
 			'group_member5' => array('constraint' => 255, 'type' => 'varchar'),
+			'records' => array('constraint' => 11, 'type' => 'int'),
 			'condition' => array('constraint' => 11, 'type' => 'int'),
-			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
-			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
+			'created_at' => array('type' => 'timestamp'),
+			'updated_at' => array('type' => 'timestamp'),
 
 		), array('id'));
 	}

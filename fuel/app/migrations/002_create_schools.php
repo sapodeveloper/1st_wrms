@@ -2,7 +2,7 @@
 
 namespace Fuel\Migrations;
 
-class Create_create_schools
+class Create_schools
 {
 	public function up()
 	{
@@ -11,8 +11,8 @@ class Create_create_schools
 			'school_name' => array('constraint' => 255, 'type' => 'varchar'),
 			'school_url' => array('constraint' => 255, 'type' => 'varchar'),
 			'condition' => array('constraint' => 11, 'type' => 'int'),
-			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
-			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
+			'created_at' => array('type' => 'timestamp'),
+			'updated_at' => array('type' => 'timestamp'),
 
 		), array('id'));
 	}
