@@ -17,9 +17,9 @@
 		<td><?php echo $school->school_name; ?></td>
 		<td><?php echo $school->school_url; ?></td>
 		<td>
-			<?php echo Html::anchor('manage/school/view/'.$school->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
-			<?php echo Html::anchor('manage/school/edit/'.$school->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-			<?php echo Html::anchor('manage/school/delete/'.$school->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('Are you sure?')")); ?>
+			<?php echo Html::anchor('manage/school/view/'.$school->id, '詳細', array('class' => 'btn btn-info')); ?>
+			<?php echo Html::anchor('manage/school/edit/'.$school->id, '編集', array('class' => 'btn btn-success')); ?>
+			<?php echo Html::anchor('manage/school/delete/'.$school->id, '削除', array('class' => 'btn btn-danger', 'onclick' => "return confirm('削除します。よろしいですか？')")); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>	</tbody>

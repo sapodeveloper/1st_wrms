@@ -4,7 +4,7 @@ class Controller_Manage_School extends Controller_Manage
 {	
 	public function action_index()
 	{
-		$data['schools'] = Model_School::find('all');
+		$data['schools'] = Model_School::find('all', array('where' => array('condition' => 1)));
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(登録高校管理画面)');
  		$view->content=View::forge('manage/school/index', $data);
@@ -123,7 +123,8 @@ class Controller_Manage_School extends Controller_Manage
 
 		if ($school = Model_School::find($id))
 		{
-			$school->delete();
+			$school->condition = 0;
+			$school->save();
 			Session::set_flash('success', '指定された高校情報を削除しました');
 		}
 		else
