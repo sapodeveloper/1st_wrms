@@ -22,13 +22,13 @@
 							printf("有効測定");
 						}
 						elseif ($record->condition == 2) {
-							printf("無効測定(測定不可)");
+							printf("測定不可");
 						}
 						elseif ($record->condition == 3) {
-							printf("無効測定(有効測定回数外)");
+							printf("有効測定回数外");
 						}
 						elseif ($record->condition == 4) {
-							printf("無効測定(例外)");
+							printf("例外");
 						}
 						elseif ($record->condition == 0) {
 							printf("削除");

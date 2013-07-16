@@ -58,13 +58,16 @@
 							printf("有効測定");
 						}
 						elseif ($group_record->condition == 2) {
-							printf("無効測定(測定不可)");
+							printf("測定不可");
 						}
 						elseif ($group_record->condition == 3) {
-							printf("無効測定(有効測定回数外)");
+							printf("有効測定回数外");
 						}
 						elseif ($group_record->condition == 4) {
-							printf("無効測定(例外)");
+							printf("例外");
+						}
+						elseif ($group_record->condition == 0) {
+							printf("削除");
 						}
 					?>
 				</td>
