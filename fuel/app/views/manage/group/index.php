@@ -27,9 +27,9 @@
 			<?php echo Html::anchor('manage/record/GroupRecord/'.$group->id, '記録確認', array('class' => 'btn btn-success')); ?>
 		</td>
 		<td>
-			<?php echo Html::anchor('manage/group/view/'.$group->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
-			<?php echo Html::anchor('manage/group/edit/'.$group->id, '<i class="icon-wrench" title="Edit"></i>'); ?> |
-			<?php echo Html::anchor('manage/group/delete/'.$group->id, '<i class="icon-trash" title="Delete"></i>', array('onclick' => "return confirm('削除してもいいですか？')")); ?>
+			<?php echo Html::anchor('manage/group/view/'.$group->id, '詳細', array('class' => 'btn btn-info')); ?>
+			<?php echo Html::anchor('manage/group/edit/'.$group->id, '編集', array('class' => 'btn btn-success')); ?>
+			<?php echo Html::anchor('manage/group/delete/'.$group->id, '削除', array('class' => 'btn btn-danger', 'onclick' => "return confirm('削除します。よろしいですか？')")); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>	</tbody>

@@ -4,7 +4,7 @@ class Controller_Manage_Group extends Controller_Manage
 {	
 	public function action_index()
 	{
-		$data['groups'] = Model_Group::find('all');
+		$data['groups'] = Model_Group::find('all', array('where' => array('condition' => 1)));
  		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(グループ管理画面)');
  		$view->content=View::forge('manage/group/index', $data);
@@ -124,7 +124,8 @@ class Controller_Manage_Group extends Controller_Manage
 
 		if ($group = Model_Group::find($id))
 		{
-			$group->delete();
+			$group->condition = 0;
+			$group->save();
 			Session::set_flash('success', '指定されたグループ情報を削除しました');
 		}
 		else
