@@ -68,13 +68,13 @@
 				}
 			?>
 			<?php 
-				if($aep->condition < 6)
+				if($aep->condition < 4 && $aep->condition > 0)
 				{
 					printf("<td>");
 					echo Html::anchor('/manage/phase/back/'.$aep->id, '前段階', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
 					printf("</td>");
 				}
-				else
+				elseif($aep->condition == 6)
 				{
 					printf("<td colspan='2' rowspan='2'>");
 					echo Html::anchor('/manage/phase/redecline/'.$aep->id, '復帰処理', array('class' => 'btn btn-danger', 'onclick' => "return confirm('よろしいですか？')"));
@@ -82,6 +82,9 @@
 				}
 				if($aep->condition == 4)
 				{
+					printf("<td rowspan='2'>");
+					echo Html::anchor('/manage/phase/back/'.$aep->id, '前段階', array('class' => 'btn btn-warning', 'onclick' => "return confirm('よろしいですか？')"));
+					printf("</td>");
 					printf("<td rowspan='2'>");
 					echo Html::anchor('/manage/phase/outlist/'.$aep->id, 'リスト除外', array('class' => 'btn btn-info', 'onclick' => "return confirm('このリストから除外します。よろしいですか？')"));
 					printf("</td>");
@@ -109,7 +112,7 @@
 					echo Html::anchor('/manage/phase/repair/'.$aep->id, 'ロケット修理', array('class' => 'btn btn-warning', 'onclick' => "return confirm('ロケット修理フェーズにします。よろしいですか？')"));
 					printf("</td>");
 				}
-				elseif($aep->condition != 4 && $aep->condition != 6)
+				elseif($aep->condition != 4 && $aep->condition != 6 && $aep->condition != 0 && $aep->condition != 7)
 				{
 					printf("<td></td>");
 				}

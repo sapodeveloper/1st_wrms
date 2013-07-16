@@ -9,7 +9,7 @@
         <li><a href="/wrms/manage/phase/AllPhase" data-toggle="tab">全グループエントリー</a></li>
         <li><a href="/wrms/manage/phase/NotComplete" data-toggle="tab">未完了エントリー</a></li>
         <li><a href="/wrms/manage/phase/Complete" data-toggle="tab">完了済みエントリー</a></li>
-        <li><a href="/wrms/manage/phase/DeclineList" data-toggle="tab">事態処理済みエントリー</a></li>
+        <li><a href="/wrms/manage/phase/DeclineList" data-toggle="tab">辞退処理済みエントリー</a></li>
         <li><a href="/wrms/manage/phase/HideList" data-toggle="tab">除外リスト</a></li>
     </ul>
 </div>

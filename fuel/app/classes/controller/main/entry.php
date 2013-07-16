@@ -6,13 +6,14 @@ class Controller_Main_Entry extends Controller_Main
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_WaitGroupList::validate('create');
+			$val = Model_Entry::validate('create');
 			
 			if ($val->run())
 			{
-				$wgl = Model_WaitGroupList::forge(array(
+				$wgl = Model_Entry::forge(array(
 					'group_id' => Input::post('group_id'),
 					'condition' => 0,
+					'decline_condition' => 0,
 				));
 				if($wgl->group_id == 0)
 				{

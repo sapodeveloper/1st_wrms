@@ -1,6 +1,6 @@
 <?php
 
-class Model_EntryLists extends \Orm\Model
+class Model_Entry extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
@@ -21,7 +21,7 @@ class Model_EntryLists extends \Orm\Model
 			'mysql_timestamp' => true,
 		),
 	);
-	protected static $_table_name = 'entry_lists';
+	protected static $_table_name = 'entries';
 
 	public static function validate($factory)
 	{

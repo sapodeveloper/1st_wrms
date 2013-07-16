@@ -12,42 +12,42 @@ class Controller_Manage_Phase extends Controller_Manage
 
 	public function action_AllPhase()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4),'or' => array(array('condition' => 6),'or' => array(array('condition' => 7))))))))));
+		$data['all_entry_phase'] = Model_Entry::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 4),'or' => array(array('condition' => 6),'or' => array(array('condition' => 7))))))))));
  		$view=View::forge('manage/phase/all_phase', $data);
  		return $view;
 	}
 
 	public function action_NotComplete()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 7))))))));
+		$data['all_entry_phase'] = Model_Entry::find('all', array('where' => array(array('condition' => 0),'or' => array(array('condition' => 1),'or' => array(array('condition' => 2),'or' => array(array('condition' => 3),'or' => array(array('condition' => 7))))))));
  		$view=View::forge('manage/phase/not_complete_list', $data);
  		return $view;
 	}
 
 	public function action_Complete()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array(array('condition' => 4))));
+		$data['all_entry_phase'] = Model_Entry::find('all', array('where' => array(array('condition' => 4))));
  		$view=View::forge('manage/phase/complete_list', $data);
  		return $view;
 	}
 
 	public function action_DeclineList()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array('condition' => 6)));
+		$data['all_entry_phase'] = Model_Entry::find('all', array('where' => array('condition' => 6)));
  		$view=View::forge('manage/phase/decline_list', $data);
  		return $view;
 	}
 
 	public function action_HideList()
 	{
-		$data['all_entry_phase'] = Model_EntryLists::find('all', array('where' => array('condition' => 5)));
+		$data['all_entry_phase'] = Model_Entry::find('all', array('where' => array('condition' => 5)));
  		$view=View::forge('manage/phase/hide_list', $data);
  		return $view;
 	}
 
 	public function action_forward($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');
@@ -73,7 +73,7 @@ class Controller_Manage_Phase extends Controller_Manage
 
 	public function action_back($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');
@@ -93,7 +93,7 @@ class Controller_Manage_Phase extends Controller_Manage
 
 	public function action_outlist($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');
@@ -113,7 +113,7 @@ class Controller_Manage_Phase extends Controller_Manage
 
 	public function action_decline($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');
@@ -134,7 +134,7 @@ class Controller_Manage_Phase extends Controller_Manage
 
 	public function action_redecline($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');
@@ -154,7 +154,7 @@ class Controller_Manage_Phase extends Controller_Manage
 
 	public function action_repair($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/phase');

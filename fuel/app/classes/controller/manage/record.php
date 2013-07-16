@@ -63,8 +63,8 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_EntryRecord()
 	{
-		$data['launches'] = Model_EntryLists::find('all', array('where' => array('condition' => 3)));
-		$data['standbys'] = Model_EntryLists::find('all', array('where' => array('condition' => 2)));
+		$data['launches'] = Model_Entry::find('all', array('where' => array('condition' => 3)));
+		$data['standbys'] = Model_Entry::find('all', array('where' => array('condition' => 2)));
 		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(記録登録画面)');
  		$view->content=View::forge('manage/record/entry_record', $data);
@@ -74,7 +74,7 @@ class Controller_Manage_Record extends Controller_Manage
 	public function action_InputRecord($id = null)
 	{
 		$event = Model_Event::find('first', array('where' => array('condition' => 1)));
-		$wgl = Model_EntryLists::find($id);
+		$wgl = Model_Entry::find($id);
 		if (Input::method() == 'POST')
 		{
 			$val = Model_Record::validate('create');
@@ -116,7 +116,7 @@ class Controller_Manage_Record extends Controller_Manage
 		$data['decision'][2] = '無効(測定不可)';
 		$data['decision'][3] = '無効(有効測定回数外)';
 		$data['decision'][4] = '無効(例外)';
-		$data['launch'] = Model_EntryLists::find($id);
+		$data['launch'] = Model_Entry::find($id);
 		$view=View::forge('layout/manage');
  		$view->set_global('title','水ロケット管理システム(記録登録画面)');
  		$view->content=View::forge('manage/record/input_record', $data);
@@ -136,7 +136,7 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_NextStep($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/record/EntryRecord');
@@ -156,7 +156,7 @@ class Controller_Manage_Record extends Controller_Manage
 
 	public function action_complete($id = null)
 	{
-		if ( ! $wgl = Model_EntryLists::find($id))
+		if ( ! $wgl = Model_Entry::find($id))
 		{
 			Session::set_flash('error', '指定されたidのエントリーは存在しません');
 			Response::redirect('manage/record/EntryRecord');
