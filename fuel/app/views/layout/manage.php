@@ -79,17 +79,19 @@
 					<li><?php echo Html::anchor('/manage', '管理トップ'); ?></li>
 					<li class="divider-vertical"></li>
 					<?php if($user == 'admin'): ?>
-						<li><?php echo Html::anchor('/manage/school', '登録高校管理'); ?></li>
+						<li><?php echo Html::anchor('/manage/school', '登録高校'); ?></li>
 						<li class="divider-vertical"></li>
-						<li><?php echo Html::anchor('/manage/group', 'グループ管理'); ?></li>
+						<li><?php echo Html::anchor('/manage/group', 'グループ'); ?></li>
 						<li class="divider-vertical"></li>
-						<li><?php echo Html::anchor('/manage/event', 'イベント管理'); ?></li>
+						<li><?php echo Html::anchor('/manage/event', 'イベント'); ?></li>
+						<li class="divider-vertical"></li>
+						<li><?php echo Html::anchor('/manage/entry', 'エントリー'); ?></li>
 						<li class="divider-vertical"></li>
 					<?php endif; ?>
-					<li><?php echo Html::anchor('/manage/phase', 'フェーズ管理'); ?></li>
+					<li><?php echo Html::anchor('/manage/phase', 'フェーズ'); ?></li>
 					<li class="divider-vertical"></li>
 					<?php if($user == 'admin' || $user == 'controller'): ?>
-					<li><?php echo Html::anchor('/manage/control', '発射管制管理'); ?></li>
+					<li><?php echo Html::anchor('/manage/control', '発射管制'); ?></li>
 					<li class="divider-vertical"></li>
 					<?php endif; ?>
 					<?php if($user == 'admin' || $user == 'measurer'): ?>
