@@ -60,6 +60,14 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<?php echo Form::label('所属イベント', 'event_id', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::select('event_id', $group->event_id, $event_data, array('class' => 'span4')); ?>
+
+			</div>
+		</div>
+		<div class="control-group">
 			<label class='control-label'>&nbsp;</label>
 			<div class='controls'>
 				<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>			</div>
