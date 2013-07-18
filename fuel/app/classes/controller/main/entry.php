@@ -61,7 +61,7 @@ class Controller_Main_Entry extends Controller_Main
 		}else{
 			$select_data['group_data'][0] = '------該当高校のグループはありません------';
 		}
- 		$view=View::forge('main/entry/group_list', $select_data);
+ 		$view=View::forge('manage/entry/group_list', $select_data);
  		return $view;
 	}
 
