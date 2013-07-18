@@ -15,6 +15,7 @@ class Model_Group extends \Orm\Model
 		'created_at',
 		'updated_at',
 		'records',
+		'event_id',
 	);
 
 	protected static $_observers = array(
@@ -48,6 +49,13 @@ class Model_Group extends \Orm\Model
     	'school' => array(
     		'model_to' => 'Model_School',
     		'key_from' => 'school_id',
+    		'key_to' => 'id',
+    		'cascade_save' => false,
+    		'cascade_delete' => false
+    	),
+    	'event' => array(
+    		'model_to' => 'Model_Event',
+    		'key_from' => 'event_id',
     		'key_to' => 'id',
     		'cascade_save' => false,
     		'cascade_delete' => false

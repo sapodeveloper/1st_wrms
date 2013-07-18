@@ -29,6 +29,7 @@ class Controller_Manage_Group extends Controller_Manage
 					'group_member5' => Input::post('group_member5'),
 					'condition' => 1,
 					'records' => 0,
+					'event_id' => Input::post('event_id'),
 				));
 
 				if ($group and $group->save())
@@ -52,6 +53,11 @@ class Controller_Manage_Group extends Controller_Manage
 		$school_data=Model_School::find('all');
 		foreach($school_data as $row):
 			$data['school_data'][$row->id]=$row->school_name;
+		endforeach;
+		$event_data=Model_Event::find('all', array('where' => array('condition' => 0)));
+		$data['event_data'][0] = "イベントに所属しない";
+		foreach($event_data as $row):
+			$data['event_data'][$row->id]=$row->event_name;
 		endforeach;
 
  		$view=View::forge('layout/manage');

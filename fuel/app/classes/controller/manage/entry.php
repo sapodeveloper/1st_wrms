@@ -47,7 +47,16 @@ class Controller_Manage_Entry extends Controller_Manage
 
 	public function action_group_list($id = null)
 	{
-		$data['groups']  = Model_Group::find('all', array('where' => array('school_id' => $id)));
+		$event_data = Model_Event::find('first', array('where' => array('condition' => 1)));
+		if($event_data)
+		{
+			$event_id = $event_data->id;			
+		}
+		else
+		{
+			$event_id = 9999;
+		}
+		$data['groups']  = Model_Group::find('all', array('where' => array(array('school_id' => $id),array('event_id' => $event_id))));
  		$view=View::forge('manage/entry/group_list', $data);
  		return $view;
 	}

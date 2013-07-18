@@ -9,6 +9,7 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php if($groups): ?>
 				<?php foreach ($groups as $group): ?>
 					<tr>
 						<td><?php echo $group->group_name; ?></td>
@@ -22,6 +23,11 @@
 						</td>
 					</tr>
 				<?php endforeach; ?>
+				<?php else: ?>
+					<tr>
+						<td colspan="7">該当するグループは存在していません</td>
+					</tr>
+				<?php endif; ?>
 			</tbody>
 		</table>
 	</td>

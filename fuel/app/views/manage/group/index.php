@@ -7,7 +7,7 @@
 			<th>登録ID</th>
 			<th>所属高校</th>
 			<th>チーム名</th>
-			<th colspan="5">所属メンバー</th>
+			<th>所属イベント</th>
 			<th>記録</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -18,11 +18,7 @@
 		<td><?php echo $group->id; ?></td>
 		<td><?php echo $group->school->school_name; ?></td>
 		<td><?php echo $group->group_name; ?></td>
-		<td><?php echo $group->group_member1; ?></td>
-		<td><?php echo $group->group_member2; ?></td>
-		<td><?php echo $group->group_member3; ?></td>
-		<td><?php echo $group->group_member4; ?></td>
-		<td><?php echo $group->group_member5; ?></td>
+		<td><?php echo $group->event->event_name; ?></td>
 		<td>
 			<?php echo Html::anchor('manage/record/GroupRecord/'.$group->id, '記録確認', array('class' => 'btn btn-success')); ?>
 		</td>
