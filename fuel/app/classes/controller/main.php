@@ -43,6 +43,7 @@ class Controller_Main extends Controller
 					'group_member4' => Input::post('group_member4'),
 					'group_member5' => Input::post('group_member5'),
 					'condition' => 1,
+					'records' => 0,
 				));
 
 				if ($group and $group->save())
@@ -50,6 +51,7 @@ class Controller_Main extends Controller
 					$wgl = Model_Entry::forge(array(
 						'group_id' => $group->id,
 						'condition' => 1,
+						'decline_condition' => 0,
 					));
 
 					if ($wgl and $wgl->save())

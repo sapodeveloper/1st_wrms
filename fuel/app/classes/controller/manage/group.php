@@ -28,6 +28,7 @@ class Controller_Manage_Group extends Controller_Manage
 					'group_member4' => Input::post('group_member4'),
 					'group_member5' => Input::post('group_member5'),
 					'condition' => 1,
+					'records' => 0,
 				));
 
 				if ($group and $group->save())
