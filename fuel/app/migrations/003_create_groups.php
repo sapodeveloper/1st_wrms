@@ -16,6 +16,7 @@ class Create_groups
 			'group_member4' => array('constraint' => 255, 'type' => 'varchar'),
 			'group_member5' => array('constraint' => 255, 'type' => 'varchar'),
 			'records' => array('constraint' => 11, 'type' => 'int'),
+			'event_id' => array('constraint' => 11, 'type' => 'int'),
 			'condition' => array('constraint' => 11, 'type' => 'int'),
 			'created_at' => array('type' => 'timestamp'),
 			'updated_at' => array('type' => 'timestamp'),
