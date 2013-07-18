@@ -11,6 +11,15 @@ class Controller_Manage_Group extends Controller_Manage
  		return $view;
 	}
 
+	public function action_view($id = null)
+	{
+		$data['group'] = Model_Group::find($id);
+		$view=View::forge('layout/manage');
+ 		$view->set_global('title','水ロケット管理システム(グループ管理画面)');
+ 		$view->content=View::forge('manage/group/view', $data);
+ 		return $view;
+	}
+
 	public function action_create()
 	{
 		if (Input::method() == 'POST')

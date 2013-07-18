@@ -1,5 +1,7 @@
 <h3>登録参加グループ情報</h3>
 <br>
+<p><?php echo Html::anchor('manage/group/create', '新規登録', array('class' => 'btn btn-success')); ?></p>
+<br>
 <?php if ($groups): ?>
 <table class="table table-striped">
 	<thead>
@@ -34,7 +36,5 @@
 <?php else: ?>
 <p>現在参加グループは登録されていません。</p>
 
-<?php endif; ?><p>
-	<?php echo Html::anchor('manage/group/create', '新規登録', array('class' => 'btn btn-success')); ?>
-
-</p>
+<?php endif; ?>
+<p><?php echo Html::anchor('manage/group/create', '新規登録', array('class' => 'btn btn-success')); ?></p>
