@@ -34,6 +34,13 @@
 		    .navcolor2{
 		    	background-image: -webkit-linear-gradient(top, #05FD2D, #60F80B) !important;
 		    }
+
+		    .menu{
+		    	background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+		    }
+		    .divider-vertical {
+		    	background-color: #999999 !important;
+		    }
 		</style>
 	</head>
 	<body>
@@ -62,34 +69,42 @@
 	  	</div>
 	</div>
 	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<ui class="nav">
+					<?php
+						$auth = Auth::instance();
+						$user = $auth->get_screen_name();
+					?>
+					<li><?php echo Html::anchor('/manage', '管理トップ'); ?></li>
+					<li class="divider-vertical"></li>
+					<?php if($user == 'admin'): ?>
+						<li><?php echo Html::anchor('/manage/school', '登録高校管理'); ?></li>
+						<li class="divider-vertical"></li>
+						<li><?php echo Html::anchor('/manage/group', 'グループ管理'); ?></li>
+						<li class="divider-vertical"></li>
+						<li><?php echo Html::anchor('/manage/event', 'イベント管理'); ?></li>
+						<li class="divider-vertical"></li>
+					<?php endif; ?>
+					<li><?php echo Html::anchor('/manage/phase', 'フェーズ管理'); ?></li>
+					<li class="divider-vertical"></li>
+					<?php if($user == 'admin' || $user == 'controller'): ?>
+					<li><?php echo Html::anchor('/manage/control', '発射管制管理'); ?></li>
+					<li class="divider-vertical"></li>
+					<?php endif; ?>
+					<?php if($user == 'admin' || $user == 'measurer'): ?>
+					<li><?php echo Html::anchor('/manage/record/EntryRecord', 'レコード登録'); ?></li>
+					<li class="divider-vertical"></li>
+					<?php endif; ?>
+					<li><?php echo Html::anchor('/manage/record', '記録管理'); ?></li>
+				</ui>
+			</div>
+		</div>
 		<div class="row-fluid">
 	    	<div class="span12">
 	     		<div class="well">
 					<div class="container-fluid">
-  						<div class="row-fluid">
-							<div class="span2">
-								<ui class="nav nav-list">
-									<?php
-										$auth = Auth::instance();
-										$user = $auth->get_screen_name();
-									?>
-									<li><?php echo Html::anchor('/manage', '管理トップ'); ?></li>
-									<?php if($user == 'admin'): ?>
-										<li><?php echo Html::anchor('/manage/school', '登録高校管理'); ?></li>
-										<li><?php echo Html::anchor('/manage/group', 'グループ管理'); ?></li>
-										<li><?php echo Html::anchor('/manage/event', 'イベント管理'); ?></li>
-									<?php endif; ?>
-									<li><?php echo Html::anchor('/manage/phase', 'フェーズ管理'); ?></li>
-									<?php if($user == 'admin' || $user == 'controller'): ?>
-									<li><?php echo Html::anchor('/manage/control', '発射管制管理'); ?></li>
-									<?php endif; ?>
-									<?php if($user == 'admin' || $user == 'measurer'): ?>
-									<li><?php echo Html::anchor('/manage/record/EntryRecord', 'レコード登録'); ?></li>
-									<?php endif; ?>
-									<li><?php echo Html::anchor('/manage/record', '記録管理'); ?></li>
-								</ui>
-							</div>
-							<div class="span10">
+							<div class="span12">
 								<?php if (Session::get_flash('success')): ?>
 									<div class="alert alert-success">
 										<strong>Success</strong>
@@ -108,7 +123,6 @@
 								<?php endif; ?>
 								<?php echo $content; ?>				
 							</div>
-	 					</div>
 					</div>
 					<hr>
 					<footer>
