@@ -7,6 +7,7 @@
 			<td>レコードID</td>
 			<td>Y軸</td>
 			<td>X軸</td>
+			<td>測定大会</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -15,6 +16,7 @@
 			<td><?php echo $max_record->id; ?></td>
 			<td><?php echo $max_record->y_distance; ?>m</td>
 			<td><?php echo $max_record->x_distance; ?>m</td>
+			<td><?php echo $max_record->event->event_name; ?></td>
 			<td></td>
 		</tr>
 	</tbody>
@@ -27,6 +29,7 @@
 			<td>レコードID</td>
 			<td>Y軸</td>
 			<td>X軸</td>
+			<td>測定大会</td>
 			<td>判定</td>
 			<td></td>
 		</tr>
@@ -51,6 +54,7 @@
 				<td><?php echo $group_record->id; ?></td>
 				<td><?php echo $group_record->y_distance; ?>m</td>
 				<td><?php echo $group_record->x_distance; ?>m</td>
+				<td><?php echo $group_record->event->event_name; ?></td>
 				<td>
 					<?php
 						if($group_record->condition == 1)

@@ -39,6 +39,13 @@
 					</td>
 				</tr>
 				<tr>
+					<td>測定大会</td>
+					<td>
+						<?php echo Form::select('event_id', $record->event_id, $event_data, array('class' => 'span4')); ?>
+
+					</td>
+				</tr>
+				<tr>
 					<td>レコード判定</td>
 					<td><?php echo Form::select('condition', $record->condition, $decision, array('class' => 'span4')); ?></td>
 				</tr>
