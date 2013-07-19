@@ -100,12 +100,24 @@ class Controller_Manage_Record extends Controller_Manage
 
 					# mail送信による記録損失対策
 					$email = Email::forge();
-					$email->from('wrms@mori-theta.net', 'back up mail');
+					$email->from('b210132@cc.it-hiroshima.ac.jp', 'ペットボトルロケット大会運営補助システム');
 					$email->to('tomohiro.m0219@gmail.com');
-					$email->subject('back up mail');
-					$records['group_records'] = Model_Record::find('all', array('where' => array('group_id' => $id)));
-					$body = View::forge('manage/record/email', $records);
-					$email->body(mb_convert_encoding($body, 'jis'));
+					$email->subject('記録バックアップメール');
+					$records = Model_Record::find('all', array('where' => array('group_id' => $record->group_id)));
+					$body = "バックアップメール\r";
+					foreach ($records as $gr)
+					{
+						$group_name = $gr->group->group_name;
+						$group_id = $gr->id;
+						$y_distance = $gr->y_distance;
+						$x_distance = $gr->x_distance;
+						$body .= "グループ名:$group_name\r";
+						$body .= "レコードID:$group_id\r";
+						$body .= "y_distance:$y_distance\r";
+						$body .= "x_distance:$x_distance\r";
+						$body .= "\r";
+					}
+					$email->body($body);
 					try {
 					    $email->send();
 					}

@@ -5,7 +5,7 @@ class Controller_Record extends Controller
 	public function action_index()
 	{
 		$data['distance'] = Model_Record::find('all', array('where' => array('condition' => 1), 'order_by' => array('y_distance' => 'desc'), 'limit' => 10));
-		$query = DB::query('SELECT X.id ,school_name ,group_name ,X.y_distance
+		$query = DB::query('SELECT distinct X.id ,school_name ,group_name ,X.y_distance
 								FROM records as X
 								inner join groups on X.group_id = groups.id
 								inner join schools on groups.school_id = schools.id
