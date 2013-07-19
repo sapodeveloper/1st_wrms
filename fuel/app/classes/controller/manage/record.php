@@ -97,6 +97,25 @@ class Controller_Manage_Record extends Controller_Manage
 					$group->records = $num_rows;
 					$group->save();
 
+
+					# mail送信による記録損失対策
+					$email = Email::forge();
+					$email->from('wrms@mori-theta.net', 'back up mail');
+					$email->to('tomohiro.m0219@gmail.com');
+					$email->subject('back up mail');
+					$records['group_records'] = Model_Record::find('all', array('where' => array('group_id' => $id)));
+					$body = View::forge('manage/record/email', $records);
+					$email->body(mb_convert_encoding($body, 'jis'));
+					try {
+					    $email->send();
+					}
+					catch (\EmailValidationFailedException $e) {
+						Session::set_flash('error', '送信に失敗しました。');
+					}
+					catch (\EmailSendingFailedException $e) {
+					    Session::set_flash('error', '送信に失敗しました。');
+					}
+
 					Session::set_flash('success', '記録登録しました');
 
 					Response::redirect('manage/record/EntryRecord');
