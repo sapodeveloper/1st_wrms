@@ -11,7 +11,7 @@ class Controller_Record extends Controller
 								inner join schools on groups.school_id = schools.id
 									where (X.y_distance, X.group_id)
 										in (select max(Y.y_distance), Y.group_id from records as Y group by Y.group_id)
-											order by y_distance desc')->limit(10);
+											order by y_distance desc limit 10');
 		$data['group_records'] = $query->as_object()->execute()->as_array();
 		$today = strtotime(date('Ymd'));
 		$data['today_records'] = Model_Record::find('all', array('where' => array(array('condition' => 1), array('created_at', '>', $today)), 'order_by' => array('y_distance' => 'desc'), 'limit' => 10));
