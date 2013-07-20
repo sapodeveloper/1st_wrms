@@ -23,7 +23,7 @@
 			position: absolute;
 			top: 320px;
 			left: 100px;
-			font-size: 55px;
+			font-size: 50px;
 		}
 
 		#detail{
@@ -64,10 +64,10 @@
 </head>
 <body>
 	<div id="cup_name">
-		<?php echo $record->event->event_name; ?>
+		<?php //echo $record->event->event_name; ?>
 	</div>
 	<div id="commendation">
-		&nbsp;貴殿方は、2013年度水ロケット大会で<br/>以下の結果を得られたことを証明します。
+		&nbsp;貴殿方は、<?php echo $record->event->event_name; ?>での<br/>水ロケット大会で以下の結果を得られたことを証明します。
 	</div>
 	<div id="memberlist">
 		メンバー : <?php echo $record->group->group_member1; ?>&nbsp;
