@@ -14,7 +14,7 @@
 				<td><?php echo $record->id; ?></td>
 				<td><?php echo $record->group->school->school_name; ?></td>
 				<td><?php echo $record->group->group_name; ?></td>
-				<td><?php echo $record->x_distance; ?>m</td>
+				<td><?php echo $record->y_distance; ?>m</td>
 				<td>
 					<?php
 						if($record->condition == 1)
