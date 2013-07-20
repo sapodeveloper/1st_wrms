@@ -6,57 +6,58 @@
 		body{
 			background-image: url("../../../assets/img/bg.png");
 			background-repeat:no-repeat;
-			margin: 5px 10px 15px 20px;
+			background-size: auto 100%;
+			margin: 15px 10px 50px 20px;
 		}
 
 		#cup_name{
 			width: 1000px;
 			position: absolute;
-			top: 45px;
-			left: 790px;
-			font-size: 90px;
+			top: 4px;
+			left: 495px;
+			font-size: 70px;
 		}
 
 		#commendation{
 			width: 1800px;
 			position: absolute;
-			top: 490px;
-			left: 80px;
-			font-size: 90px;
-		}
-
-		#memberlist{
-			background-color: #B0E0E6; 
-			border-radius: 15px;
-			width: 1600px;
-			position: absolute;
-			top: 1700px;
-			left: 100px;
-			font-size: 90px;
-			border:15px solid #008080;
+			top: 300px;
+			left: 65px;
+			font-size: 55px;
 		}
 
 		#detail{
 			background-color: rgba(50,200,180,0.5);
 			border-radius: 15px;
-			width: 1500px;
+			width: 990px;
 			position: absolute;
-			top: 1100px;
-			left: 150px;
-			font-size: 90px;
+			top: 620px;
+			left: 90px;
+			font-size: 60px;
+		}
+
+		#memberlist{
+			background-color: #B0E0E6; 
+			border-radius: 15px;
+			width: 980px;
+			position: absolute;
+			top: 1000px;
+			left: 90px;
+			font-size: 50px;
+			border:10px solid #008080;
 		}
 
 		#record{
 			color: #ff3333;
 			text-align: center; 
-			font-size: 180px;
+			font-size: 120px;
 		}
 
 		#date{
 			position: absolute;
-			top: 2455px;
-			left: 190px;
-			font-size: 90px;
+			top: 1533px;
+			left: 130px;
+			font-size: 50px;
 			color: white;
 		}
 	</style>
