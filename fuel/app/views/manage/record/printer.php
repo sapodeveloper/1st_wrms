@@ -55,10 +55,10 @@
 
 		#date{
 			position: absolute;
-			top: 1600px;
+			top: 1525px;
 			left: 150px;
 			font-size: 50px;
-			color: black;
+			color: white;
 		}
 	</style>
 </head>
