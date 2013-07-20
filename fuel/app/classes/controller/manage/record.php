@@ -257,4 +257,12 @@ class Controller_Manage_Record extends Controller_Manage
 		Response::redirect('manage/record/');
 	}
 
+	public function action_print_record($id = null)
+	{
+		$data['record'] = Model_Record::find($id);
+		$view=View::forge('manage/record/printer', $data);
+ 		return $view;
+
+	}
+
 }

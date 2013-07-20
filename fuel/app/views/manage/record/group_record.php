@@ -17,7 +17,7 @@
 			<td><?php echo $max_record->y_distance; ?>m</td>
 			<td><?php echo $max_record->x_distance; ?>m</td>
 			<td><?php echo $max_record->event->event_name; ?></td>
-			<td></td>
+			<td><?php echo Html::anchor('manage/record/print_record/'.$max_record->id, '印刷', array('class' => 'btn btn-success')); ?></td>
 		</tr>
 	</tbody>
 </table>
