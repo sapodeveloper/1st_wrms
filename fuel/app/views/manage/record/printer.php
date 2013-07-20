@@ -13,7 +13,7 @@
 		#cup_name{
 			width: 1000px;
 			position: absolute;
-			top: 4px;
+			top: 8px;
 			left: 495px;
 			font-size: 70px;
 		}
@@ -21,8 +21,8 @@
 		#commendation{
 			width: 1800px;
 			position: absolute;
-			top: 300px;
-			left: 65px;
+			top: 310px;
+			left: 75px;
 			font-size: 55px;
 		}
 
