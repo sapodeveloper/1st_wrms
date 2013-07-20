@@ -58,7 +58,7 @@
 			top: 2050px;
 			left: 140px;
 			font-size: 50px;
-			color: white;
+			color: black;
 		}
 	</style>
 </head>
