@@ -13,16 +13,16 @@
 		#cup_name{
 			width: 1000px;
 			position: absolute;
-			top: 8px;
-			left: 495px;
+			top: 15px;
+			left: 510px;
 			font-size: 70px;
 		}
 
 		#commendation{
 			width: 1800px;
 			position: absolute;
-			top: 310px;
-			left: 75px;
+			top: 320px;
+			left: 80px;
 			font-size: 55px;
 		}
 
