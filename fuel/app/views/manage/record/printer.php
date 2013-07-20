@@ -55,8 +55,8 @@
 
 		#date{
 			position: absolute;
-			top: 2050px;
-			left: 140px;
+			top: 1700px;
+			left: 150px;
 			font-size: 50px;
 			color: black;
 		}
