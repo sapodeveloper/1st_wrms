@@ -13,7 +13,7 @@
 		#cup_name{
 			width: 1000px;
 			position: absolute;
-			top: 15px;
+			top: 20px;
 			left: 510px;
 			font-size: 70px;
 		}
@@ -22,7 +22,7 @@
 			width: 1800px;
 			position: absolute;
 			top: 320px;
-			left: 80px;
+			left: 100px;
 			font-size: 55px;
 		}
 
